@@ -3,35 +3,39 @@ import { Image } from "astro:assets";
 import banner from "../assets/banner.png";
 ---
 
-<div class="flex flex-col md:flex-row mt-4">
+<div class="flex flex-col sm:flex-row mt-4">
     <!-- Para la parte izquierda solo texto -->
-    <div class="mx-4 sm:mx-8 md:ml-10 xl:ml-28 sm:h-screen flex items-center">
+    <div class="mx-4 md:ml-8 xl:ml-28 flex items-center">
         <div class="text-center sm:text-left">
-            <h1 class="font-bold text-sky-800 text-4xl xl:text-6xl">
+            <h1
+                class="font-bold text-sky-800 text-2xl sm:text-3xl md:text-4xl xl:text-6xl"
+            >
                 Emite tus facturas electrónicas de manera facíl y rápida
             </h1>
             <button
-                class="rounded-full bg-sky-700 text-white text-xl px-8 py-2 my-8 font-bold"
+                class="rounded-full bg-sky-700 text-white md:text-xl px-8 py-2 my-8 font-bold"
                 >Ingresar</button
             >
             <section>
-                <h2 class="font-bold text-sky-800 text-2xl sm:text-3xl py-4 mb-4">
+                <h2
+                    class="font-bold text-sky-800 md:text-2xl lg:text-3xl py-4 mb-4"
+                >
                     Factura desde cualquier parte del mundo
                 </h2>
-                <p class="text-xl sm:text-xl text-sky-700">
+                <p class="hidden lg:block lg:text-xl text-sky-700">
                     FACEC el facturero electrónico que te permite emitir tus
                     comprobantes electrónicos desde cuaquier parte del mundo y
                     esta ajustado a todos los dispositivos.
                 </p>
             </section>
             <button
-                class="rounded-full bg-sky-300 text-white text-xl px-8 py-2 my-8 font-semibold"
+                class="hidden lg:block rounded-full bg-sky-300 text-white md:text-xl px-8 py-2 my-8 font-semibold"
                 >Solicitar prueba</button
             >
         </div>
     </div>
     <!-- para la parte derecha en dispositivo sm -->
-    <div class="hidden sm:block">
-        <Image src={banner} width={1800} alt="Banner" />
+    <div class="hidden sm:flex items-end">
+        <Image src={banner} class="bottom-0" width={1800} alt="Banner" />
     </div>
 </div>
