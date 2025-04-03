@@ -1,0 +1,96 @@
+---
+const pricesMonths = [
+    {
+        price: 5,
+        plan: "Plan básico",
+        caracteristics: ["Hasta 65 comprobantes"],
+    },
+    {
+        price: 10,
+        plan: "Plan medium",
+        caracteristics: ["Hasta 150 comprobantes"],
+    },
+    { price: 15, plan: "Plan pro", caracteristics: ["Hasta 300 comprobantes"] },
+    {
+        price: 20,
+        plan: "Plan ilimitado",
+        caracteristics: ["Sin límite de comprobantes"],
+    },
+];
+
+const pricesYears = [
+    {
+        price: 20,
+        plan: "Plan básico",
+        caracteristics: ["Hasta 200 comprobantes"],
+    },
+];
+---
+
+<section class="bg-sky-50 flex flex-col text-center py-10 px-6">
+    <h1 class="text-sky-900 text-3xl font-semibold mb-4">
+        "Lo mejor al mejor precio, diseñado para ti."
+    </h1>
+
+    <!-- Plan mensual -->
+    <h2 class="text-sky-900 text-4xl font-bold mb-6">Planes mensual</h2>
+
+    <!-- Container -->
+    <div
+        class="container mx-auto grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8"
+    >
+        {
+            pricesMonths.map((price) => (
+                <article class="rounded-2xl bg-white shadow-lg p-6 text-center">
+                    <div class="flex justify-center mb-4">
+                        <span class="rounded-full bg-sky-900 p-4 text-2xl text-white">
+                            ${price.price}
+                        </span>
+                    </div>
+                    <h2 class="font-bold text-sky-900 text-2xl">
+                        {price.plan}
+                    </h2>
+                    <ul class="mt-4 space-y-1 text-sky-800">
+                        {price.caracteristics.map((caracteristic) => (
+                            <li class="list-disc">{caracteristic}</li>
+                        ))}
+                    </ul>
+                    <button class="mt-6 rounded-full bg-sky-900 px-4 py-2 text-white hover:bg-sky-700 transition">
+                        Contratar
+                    </button>
+                </article>
+            ))
+        }
+    </div>
+    
+    <!-- Plan anual -->
+    <h2 class="text-sky-900 text-4xl font-bold my-6">Planes anual</h2>
+
+    <!-- Container -->
+    <div
+        class="container mx-auto grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8"
+    >
+        {
+            pricesYears.map((price) => (
+                <article class="rounded-2xl bg-white shadow-lg p-6 text-center">
+                    <div class="flex justify-center mb-4">
+                        <span class="rounded-full bg-sky-900 p-4 text-2xl text-white">
+                            ${price.price}
+                        </span>
+                    </div>
+                    <h2 class="font-bold text-sky-900 text-2xl">
+                        {price.plan}
+                    </h2>
+                    <ul class="mt-4 space-y-1 text-sky-800">
+                        {price.caracteristics.map((caracteristic) => (
+                            <li class="list-disc">{caracteristic}</li>
+                        ))}
+                    </ul>
+                    <button class="mt-6 rounded-full bg-sky-900 px-4 py-2 text-white hover:bg-sky-700 transition">
+                        Contratar
+                    </button>
+                </article>
+            ))
+        }
+    </div>
+</section>

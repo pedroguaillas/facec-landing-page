@@ -1,0 +1,65 @@
+<div class="flex flex-row items-center justify-between mx-auto container h-16">
+    <div class="font-bold text-3xl text-sky-800 ml-4 sm:ml-0">
+        fac<span class="text-sky-600">ec</span>
+    </div>
+    <button
+        id="menu-toggle"
+        class="sm:hidden p-2 rounded mr-4 bg-sky-700 text-white font-bold"
+    >
+        <svg
+            xmlns="http://www.w3.org/2000/svg"
+            fill="none"
+            viewBox="0 0 24 24"
+            stroke-width="1.5"
+            stroke="currentColor"
+            class="size-6"
+        >
+            <path
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5"></path>
+        </svg>
+    </button>
+    <nav id="mobile-menu" class="hidden sm:block">
+        <ul class="flex flex-col sm:flex-row text-sky-700">
+            <li
+                class="hover:bg-sky-200 rounded-3xl transition ease-in-out duration-300"
+            >
+                <a class="p-4 cursor-pointer" href="#">Características</a>
+            </li>
+            <li
+                class="hover:bg-sky-200 rounded-3xl transition ease-in-out duration-300"
+            >
+                <a class="p-4 cursor-pointer" href="#">Precios</a>
+            </li>
+            <li
+                class="hover:bg-sky-200 rounded-3xl transition ease-in-out duration-300"
+            >
+                <a class="p-4 cursor-pointer" href="#">Firmas electrónicas</a>
+            </li>
+            <li
+                class="hover:bg-sky-200 rounded-3xl transition ease-in-out duration-300"
+            >
+                <a class="p-4 cursor-pointer" href="#">Contáctanos</a>
+            </li>
+            <li
+                class="hover:bg-sky-200 rounded-3xl transition ease-in-out duration-300"
+            >
+                <a class="p-4 cursor-pointer" href="#">FAQ</a>
+            </li>
+            <li
+                class="hover:bg-sky-200 rounded-3xl transition ease-in-out duration-300"
+            >
+                <a class="p-4 cursor-pointer" href="https://facec.peterio.tech"
+                    >Ingresar</a
+                >
+            </li>
+        </ul>
+    </nav>
+</div>
+
+<script>
+    document.getElementById("menu-toggle")?.addEventListener("click", () => {
+        document.getElementById("mobile-menu")?.classList.toggle("hidden");
+    });
+</script>
