@@ -1,0 +1,112 @@
+<section id="contactame" class="bg-gradient-to-b from-sky-50 to-sky-200 py-16">
+  <div class="container mx-auto flex flex-col text-center px-6">
+    <h1
+      class="text-sky-900 text-4xl md:text-5xl font-semibold mb-4 animate-fade-in-down"
+    >
+      Contáctanos
+    </h1>
+    <p class="text-sky-700 mb-8 lg:text-2xl italic max-w-2xl mx-auto">
+      "Contáctanos y resolveremos tus dudas con la mejor atención."
+    </p>
+    <div class="flex flex-col lg:flex-row justify-center items-center gap-12">
+      <div class="relative">
+        <h2
+          class="text-sky-900 text-3xl md:text-4xl font-bold mb-6 animate-pulse"
+        >
+          +593 95 964 9714
+        </h2>
+        <span
+          class="absolute -top-2 -right-2 bg-sky-500 text-white text-xs font-bold px-2 py-1 rounded-full animate-bounce"
+        >
+          ¡Llámanos!
+        </span>
+      </div>
+    </div>
+    <div class="flex flex-col lg:flex-row justify-center items-center gap-12">
+      <!-- Llamar directamente -->
+      <div
+        class="w-full max-w-xs relative rounded-full cursor-pointer transition-all duration-300 delay-150 ease-in-out hover:scale-110 hover:-translate-y-1 p-px overflow-hidden shadow-lg shadow-sky-700/50"
+      >
+        <!-- Capa del borde animado -->
+        <div
+          class="absolute inset-[-4px] rounded-full animate-border-rotate bg-[conic-gradient(from_var(--border-angle),#0ea5e9_0%,#38bdf8_50%,#0284c7_100%)]"
+        >
+        </div>
+        <!-- Contenido -->
+        <a
+          href="tel:+593959649714"
+          class="relative bg-sky-300 hover:bg-sky-700/70 rounded-full px-8 py-3 text-white md:text-xl font-bold text-center z-10 block"
+        >
+          Llamar Ahora
+        </a>
+      </div>
+      <!-- Ir al whatsapp -->
+      <div
+        class="w-full max-w-xs relative rounded-full cursor-pointer transition-all duration-300 delay-150 ease-in-out hover:scale-110 hover:-translate-y-1 p-px overflow-hidden shadow-lg shadow-sky-700/50"
+      >
+        <!-- Capa del borde animado -->
+        <div
+          class="absolute inset-[-4px] rounded-full animate-border-rotate bg-[conic-gradient(from_var(--border-angle),#0ea5e9_0%,#38bdf8_50%,#0284c7_100%)]"
+        >
+        </div>
+        <!-- Contenido -->
+        <a
+          href="https://wa.me/593959649714"
+          target="_blank"
+          class="relative bg-sky-300 hover:bg-sky-700/70 rounded-full px-8 py-3 text-white md:text-xl font-bold text-center z-10 block"
+        >
+          Solicitar por Whatsapp
+        </a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<style>
+  /* Registro de la propiedad personalizada */
+  @property --border-angle {
+    syntax: "<angle>";
+    inherits: false;
+    initial-value: 0deg;
+  }
+
+  /* Animación del borde */
+  .animate-border-rotate {
+    animation: border-rotate 3s linear infinite;
+  }
+
+  @keyframes border-rotate {
+    0% {
+      --border-angle: 0deg;
+    }
+    100% {
+      --border-angle: 360deg;
+    }
+  }
+
+  /* Aseguramos que solo se vea el borde */
+  .animate-border-rotate {
+    -webkit-mask:
+      linear-gradient(#fff 0 0) content-box,
+      linear-gradient(#fff 0 0);
+    -webkit-mask-composite: xor;
+    mask-composite: exclude;
+    padding: 4px; /* Grosor del borde */
+  }
+
+  /* Animaciones adicionales */
+  .animate-fade-in-down {
+    animation: fadeInDown 1s ease-out;
+  }
+
+  @keyframes fadeInDown {
+    from {
+      opacity: 0;
+      transform: translateY(-20px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+</style>

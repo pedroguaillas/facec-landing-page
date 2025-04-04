@@ -1,0 +1,48 @@
+<div
+    class="w-full my-8 max-w-sm relative rounded-full cursor-pointer transition-all duration-300 delay-150 ease-in-out hover:scale-110 hover:-translate-y-1 p-px overflow-hidden shadow-lg shadow-sky-700/50"
+>
+    <!-- Capa del borde animado -->
+    <div
+        class="absolute inset-0 rounded-full animate-border-rotate bg-[conic-gradient(from_var(--border-angle),#000_80%,#22c55e_90%,#000_100%)]"
+    >
+    </div>
+    <!-- Contenido -->
+    <div
+        class="relative bg-sky-700 hover:bg-sky-700/70 rounded-full px-8 py-2 text-white md:text-xl font-bold text-center z-10"
+    >
+        Ingresar
+    </div>
+</div>
+
+<style>
+    /* Registro de la propiedad personalizada */
+    @property --border-angle {
+        syntax: "<angle>";
+        inherits: false;
+        initial-value: 0deg;
+    }
+
+    /* Animación del borde */
+    .animate-border-rotate {
+        animation: border-rotate 3s linear infinite;
+    }
+
+    @keyframes border-rotate {
+        0% {
+            --border-angle: 0deg;
+        }
+        100% {
+            --border-angle: 360deg;
+        }
+    }
+
+    /* Aseguramos que solo se vea el borde */
+    .animate-border-rotate {
+        -webkit-mask:
+            linear-gradient(#fff 0 0) content-box,
+            linear-gradient(#fff 0 0);
+        -webkit-mask-composite: xor;
+        mask-composite: exclude;
+        padding: 1px; /* Grosor del borde */
+    }
+</style>

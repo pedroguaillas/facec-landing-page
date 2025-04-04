@@ -3,44 +3,49 @@ import { Image } from "astro:assets";
 import appInTable from "../assets/appInTable.png";
 ---
 
-<div>
-    <div class="container mx-auto flex flex-col gap-4 p-8 md:flex-row">
-        <!-- Primera columna -->
-        <div class="sm:px-4 w-full">
-            <h2 class="text-center my-8 block font-bold text-3xl text-sky-800">
-                Principales características
-            </h2>
-            <p class="text-sky-700 mb-4 lg:text-2xl">
-                FACEC es una aplicación que esta alojado en la nube, es decir
-                solo necesitas de Internet para tener acceso a la aplicación:
-            </p>
-            <ul class="text-sky-700 ml-8 lg:text-2xl">
-                <li class="list-disc">Adaptable a cualquier negocio</li>
-                <li class="list-disc">
-                    Envio de comprobantes por correo electrónico
-                </li>
-                <li class="list-disc">
-                    Multi establecimientos y multi punto de emisión
-                </li>
-                <li class="list-disc">Intuitiva</li>
-                <li class="list-disc">
-                    Sin limites de comprobantes electrónicos
-                </li>
-                <li class="list-disc">Actualización permanente y gratis</li>
-                <li class="list-disc">Aplicación escalable</li>
-                <li class="list-disc">Reportes en Excel y PDF</li>
-                <li class="list-disc">Adaptable a cualquier dispositivo</li>
-            </ul>
-        </div>
-        <!-- Segunda columna -->
-        <div class="w-full">
-            <div class="flex h-full items-center">
-                <Image
-                    src={appInTable}
-                    class="w-full"
-                    alt="Aplicación en tablet"
-                />
-            </div>
-        </div>
-    </div>
+<div id="caracteristicas" class="container mx-auto flex flex-col-reverse md:flex-row items-center gap-10 py-16 px-6">
+  <!-- Columna de texto -->
+  <div class="w-full md:w-1/2">
+    <h2 class="text-3xl md:text-4xl font-extrabold text-sky-800 mb-4 text-center md:text-left">
+      🚀 Características que hacen única a FACEC
+    </h2>
+    <p class="text-sky-700 text-lg md:text-xl mb-6 text-center md:text-left">
+      FACEC es una aplicación 100% en la nube. Solo necesitas conexión a Internet para acceder desde cualquier lugar y dispositivo.
+    </p>
+
+    <ul class="space-y-3 text-sky-700 text-base md:text-lg">
+      <li class="flex items-start">
+        <span class="text-sky-600 mr-2">✅</span> Adaptable a cualquier negocio
+      </li>
+      <li class="flex items-start">
+        <span class="text-sky-600 mr-2">📧</span> Envío automático de comprobantes por correo
+      </li>
+      <li class="flex items-start">
+        <span class="text-sky-600 mr-2">🏢</span> Multi-establecimientos y múltiples puntos de emisión
+      </li>
+      <li class="flex items-start">
+        <span class="text-sky-600 mr-2">🧠</span> Interfaz intuitiva y fácil de usar
+      </li>
+      <li class="flex items-start">
+        <span class="text-sky-600 mr-2">∞</span> Sin límite de comprobantes electrónicos
+      </li>
+      <li class="flex items-start">
+        <span class="text-sky-600 mr-2">🔄</span> Actualizaciones automáticas y gratuitas
+      </li>
+      <li class="flex items-start">
+        <span class="text-sky-600 mr-2">📈</span> Aplicación escalable para crecer contigo
+      </li>
+      <li class="flex items-start">
+        <span class="text-sky-600 mr-2">📊</span> Reportes en Excel y PDF
+      </li>
+      <li class="flex items-start">
+        <span class="text-sky-600 mr-2">📱</span> Compatible con cualquier dispositivo
+      </li>
+    </ul>
+  </div>
+
+  <!-- Columna de imagen -->
+  <div class="w-full md:w-1/2 flex justify-center">
+    <Image src={appInTable} class="rounded-lg shadow-lg max-w-full h-auto" alt="Aplicación FACEC en una tablet" />
+  </div>
 </div>
