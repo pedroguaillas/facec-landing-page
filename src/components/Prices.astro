@@ -21,7 +21,12 @@ const pricesMonths = [
 const pricesYears = [
     {
         price: 20,
-        plan: "Plan básico",
+        plan: "Plan anual",
+        caracteristics: ["Hasta 200 comprobantes"],
+    },
+    {
+        price: 35,
+        plan: "Sistema mas firma",
         caracteristics: ["Hasta 200 comprobantes"],
     },
 ];
@@ -33,7 +38,7 @@ const pricesYears = [
     </h1>
 
     <!-- Plan mensual -->
-    <h2 class="text-sky-900 text-4xl font-bold mb-6">Planes mensual</h2>
+    <h2 class="text-sky-900 text-4xl font-bold mb-6">Planes mensuales</h2>
 
     <!-- Container -->
     <div
@@ -64,15 +69,17 @@ const pricesYears = [
     </div>
 
     <!-- Plan anual -->
-    <h2 class="text-sky-900 text-4xl font-bold my-6">Planes anual</h2>
+    <h2 class="text-sky-900 text-4xl font-bold my-6">Otros planes</h2>
 
     <!-- Container -->
     <div
         class="container mx-auto grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8"
     >
         {
-            pricesYears.map((price) => (
-                <article class="rounded-2xl bg-white shadow-lg p-6 text-center">
+            pricesYears.map((price, index) => (
+                <article
+                    class={`rounded-2xl bg-white shadow-lg p-6 text-center ${index === 0 ? "lg:col-start-2" : ""}`}
+                >
                     <div class="flex justify-center mb-4">
                         <span class="rounded-full bg-sky-900 p-4 text-2xl text-white">
                             ${price.price}

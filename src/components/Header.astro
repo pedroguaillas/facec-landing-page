@@ -1,10 +1,16 @@
-<div class="flex flex-row items-center justify-between mx-auto container h-16">
+<div
+    class="flex flex-row items-center justify-between mx-auto container h-16 relative"
+>
+    <!-- Logo -->
     <div class="font-bold text-3xl lg:text-4xl text-sky-800 ml-4 sm:ml-0">
         fac<span class="text-sky-600">ec</span>
     </div>
+
+    <!-- Botón de menú móvil -->
     <button
         id="menu-toggle"
         class="sm:hidden p-2 rounded mr-4 bg-sky-700 text-white font-bold"
+        aria-label="Abrir menú"
     >
         <svg
             xmlns="http://www.w3.org/2000/svg"
@@ -20,52 +26,94 @@
                 d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5"></path>
         </svg>
     </button>
-    <nav id="mobile-menu" class="hidden sm:block">
-        <ul class="flex flex-col sm:flex-row text-sky-700">
-            <li
-                class="hover:bg-sky-200 rounded-3xl transition ease-in-out duration-300"
+
+    <!-- Menú para pantallas grandes -->
+    <ul
+        class="hidden sm:flex flex-row items-center space-x-6 text-sky-700 mr-4"
+    >
+        <li class="hover:text-sky-900"><a href="#precios">Precios</a></li>
+        <li class="hover:text-sky-900">
+            <a href="#caracteristicas">Características</a>
+        </li>
+        <li class="hover:text-sky-900"><a href="#firmas">Firmas</a></li>
+        <li class="hover:text-sky-900"><a href="#faq">FAQ</a></li>
+        <li class="hover:text-sky-900">
+            <a href="#contactame">Contáctanos</a>
+        </li>
+        <li>
+            <a
+                href="https://facec.peterio.tech"
+                target="_blank"
+                aria-label="Ir al inicio de sesión de la aplicación FACEC"
+                class="bg-gradient-to-r from-sky-300 to-sky-900 bg-clip-text text-transparent font-semibold"
             >
-                <a class="p-4 cursor-pointer" href="#precios">Precios</a>
-            </li><li
-                class="hover:bg-sky-200 rounded-3xl transition ease-in-out duration-300"
-            >
-                <a class="p-4 cursor-pointer" href="#carateristicas"
-                    >Características</a
+                Iniciar
+            </a>
+        </li>
+    </ul>
+
+    <!-- Fondo semi-transparente detrás del menú móvil -->
+    <div
+        id="menu-overlay"
+        class="fixed inset-0 bg-sky-300/50 hidden transition-opacity duration-300 z-10"
+    >
+    </div>
+
+    <!-- Sidebar para móviles -->
+    <div
+        id="mobile-menu"
+        class="fixed top-0 right-0 h-full w-64 bg-sky-50 shadow-lg transform translate-x-full transition-transform duration-300 sm:hidden flex flex-col items-center pt-10 z-20"
+    >
+        <!-- Botón de Cerrar -->
+        <button
+            id="close-menu"
+            class="absolute top-4 right-4 px-3 py-2 bg-white border border-sky-700 text-sky-700 rounded-full transition duration-300 hover:bg-sky-100"
+        >
+            ✖
+        </button>
+
+        <!-- Menú móvil -->
+        <ul class="text-sky-700 w-full text-center">
+            <li class="hover:bg-sky-200 p-4"><a href="#precios">Precios</a></li>
+            <li class="hover:bg-sky-200 p-4">
+                <a href="#caracteristicas">Características</a>
+            </li>
+            <li class="hover:bg-sky-200 p-4"><a href="#firmas">Firmas</a></li>
+            <li class="hover:bg-sky-200 p-4"><a href="#faq">FAQ</a></li>
+            <li class="hover:bg-sky-200 p-4">
+                <a href="#contactame">Contáctanos</a>
+            </li>
+            <li class="p-4">
+                <a
+                    href="https://facec.peterio.tech"
+                    target="_blank"
+                    class="bg-gradient-to-r from-sky-300 to-sky-900 bg-clip-text text-transparent font-semibold"
                 >
-            </li>
-            <li
-                class="hover:bg-sky-200 rounded-3xl transition ease-in-out duration-300"
-            >
-                <a class="p-4 cursor-pointer" href="#firmas">Firmas</a>
-            </li>
-            <li
-                class="hover:bg-sky-200 rounded-3xl transition ease-in-out duration-300"
-            >
-                <a class="p-4 cursor-pointer" href="#faq">FAQ</a>
-            </li>
-            <li
-                class="hover:bg-sky-200 rounded-3xl transition ease-in-out duration-300"
-            >
-                <a class="p-4 cursor-pointer" href="#contactame">Contáctanos</a>
-            </li>
-            <li class="rounded-3xl transition ease-in-out duration-300">
-                <!-- <a class="p-4 cursor-pointer" href="https://facec.peterio.tech"
-                    >Ingresar</a
-                > -->
-                <a href="https://facec.peterio.tech" target="_blank">
-                    <div
-                        class="rounded-full cursor-pointer bg-gradient-to-r from-sky-300 to-sky-900 bg-clip-text text-transparent shadow-lg shadow-sky-900/50 px-4 font-semibold transition delay-150 duration-300 ease-in-out hover:-translate-y-2 hover:scale-110"
-                    >
-                        Ingresar
-                    </div>
+                    Ingresar
                 </a>
             </li>
         </ul>
-    </nav>
+    </div>
 </div>
 
 <script>
-    document.getElementById("menu-toggle")?.addEventListener("click", () => {
-        document.getElementById("mobile-menu")?.classList.toggle("hidden");
+    const menuToggle = document.getElementById("menu-toggle");
+    const mobileMenu = document.getElementById("mobile-menu");
+    const closeMenu = document.getElementById("close-menu");
+    const menuOverlay = document.getElementById("menu-overlay");
+
+    menuToggle.addEventListener("click", () => {
+        mobileMenu.classList.remove("translate-x-full");
+        menuOverlay.classList.remove("hidden");
+    });
+
+    closeMenu.addEventListener("click", () => {
+        mobileMenu.classList.add("translate-x-full");
+        menuOverlay.classList.add("hidden");
+    });
+
+    menuOverlay.addEventListener("click", () => {
+        mobileMenu.classList.add("translate-x-full");
+        menuOverlay.classList.add("hidden");
     });
 </script>
