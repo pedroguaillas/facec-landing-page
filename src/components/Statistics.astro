@@ -1,0 +1,68 @@
+---
+// Archivo: src/components/Stats.astro
+
+const stats = [
+  { icon: "👥", label: "Clientes activos", value: 1204 },
+  { icon: "🧾", label: "Facturas emitidas", value: 350918 },
+  { icon: "📦", label: "En la nube y fácil de usar", value: 100 },
+];
+---
+
+<section class="py-16 text-center bg-sky-50">
+  <h2 class="text-4xl font-bold text-sky-900 mb-10">
+    📈 Nuestras cifras hablan por sí solas
+  </h2>
+
+  <div
+    class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-8 max-w-5xl mx-auto px-4"
+  >
+    {
+      stats.map((item) => (
+        <div class="bg-white p-6 rounded-2xl shadow-lg">
+          <div class="flex justify-center">
+            <div class="text-6xl p-4 rounded-full bg-sky-900/20">{item.icon}</div>
+          </div>
+          <div
+            class="text-3xl font-bold text-sky-900 mt-2 counter"
+            data-target={item.value}
+          >
+            1
+          </div>
+          <div class="text-sky-800 mt-1">{item.label}</div>
+        </div>
+      ))
+    }
+  </div>
+</section>
+
+<script is:inline>
+  document.addEventListener("DOMContentLoaded", () => {
+    const counters = document.querySelectorAll(".counter");
+
+    counters.forEach((counter) => {
+      const target = parseFloat(counter.getAttribute("data-target"));
+      let count = 0;
+      const isDecimal = target % 1 !== 0;
+      const duration = 1500; // duración total en ms
+      const frameRate = 60; // fps
+      const steps = Math.round(duration / (1000 / frameRate));
+      const increment = target / steps;
+
+      const update = () => {
+        count += increment;
+        if (count >= target) {
+          counter.innerText = target.toLocaleString("es-EC", {
+            maximumFractionDigits: isDecimal ? 1 : 0,
+          });
+          return;
+        }
+        counter.innerText = count.toLocaleString("es-EC", {
+          maximumFractionDigits: isDecimal ? 1 : 0,
+        });
+        requestAnimationFrame(update);
+      };
+
+      requestAnimationFrame(update);
+    });
+  });
+</script>

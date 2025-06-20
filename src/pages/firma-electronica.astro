@@ -1,0 +1,21 @@
+---
+import Layout from "../layouts/Layout.astro"; // o el layout que estés usando
+import SignaturePrices from "../components/SignaturePrices.astro";
+import SignatureRequeriments from "../components/SignatureRequeriments.astro";
+import SignatureFaq from "../components/SignatureFaq.astro";
+import SignatureAdvantage from "../components/SignatureAdvantage.astro";
+import SignatureCta from "../components/SignatureCta.astro";
+import SignatureBanner from "../components/SignatureBanner.astro";
+---
+
+<Layout
+  title="Firma Electrónica en Ecuador | Precios desde $7.77 - Entrega Rápida"
+  description="Compra tu firma electrónica válida para el SRI, facturación y trámites legales en Ecuador. Precios desde $7.77. Entrega en minutos y soporte por WhatsApp."
+>
+  <SignatureBanner />
+  <SignaturePrices />
+  <SignatureRequeriments />
+  <SignatureAdvantage />
+  <SignatureFaq />
+  <SignatureCta />
+</Layout>

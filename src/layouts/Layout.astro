@@ -1,41 +1,43 @@
+---
+import Footer from "../components/Footer.astro";
+import Header from "../components/Header.astro";
+const { title, description } = Astro.props;
+import "../styles/global.css";
+---
+
 <!doctype html>
 <html lang="es">
-	<head>
-		<meta charset="UTF-8" />
-		<meta name="viewport" content="width=device-width" />
-		<link rel="icon" type="image/svg+xml" href="/favicon.ico" />
-		<meta name="generator" content={Astro.generator} />
-		<meta property="og:title" content="FACEC | Facíl de facturar" />
-		<meta
-			property="og:description"
-			content="Aplicación de facturación electrónica."
-		/>
-		<meta property="og:url" content="https://www.facec.ec" />
-		<meta property="og:type" content="website" />
-		<meta property="og:image" content="../assets/og-image.png" />
-		<!-- <meta property="og:image" content="../assets/og-image.png" /> -->
-		<meta
-			name="description"
-			content="Aplicación de facturación electrónica y emisión de firmas electrónicas al instante."
-		/>
-		<title>FACEC | Facíl de facturar</title>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.ico" />
+    <meta name="generator" content={Astro.generator} />
+    <meta property="og:title" content={title} />
+    <meta property="og:description" content={description} />
+    <meta property="og:url" content="https://www.facec.ec" />
+    <meta property="og:type" content="website" />
+    <meta property="og:image" content="../assets/og-image.png" />
+    <title>{title}</title>
+    <meta name="description" content={description} />
 
-		<!-- Twitter / X -->
-		<meta name="twitter:card" content="facec" />
-		<meta name="twitter:title" content="FACEC | Facíl de facturar" />
-		<meta name="twitter:description" content="Aplicación de facturación electrónica" />
-		<meta name="twitter:image" content="./assets/og-image.png" />
-	</head>
-	<body>
-		<slot />
-	</body>
+    <!-- Twitter / X -->
+    <meta name="twitter:title" content={title} />
+    <meta name="twitter:card" content="facec" />
+    <meta name="twitter:description" content={description} />
+    <meta name="twitter:image" content="./assets/og-image.png" />
+  </head>
+  <body>
+    <Header />
+    <slot />
+    <Footer />
+  </body>
 </html>
 
 <style>
-	html,
-	body {
-		margin: 0;
-		width: 100%;
-		height: 100%;
-	}
+  html,
+  body {
+    margin: 0;
+    width: 100%;
+    height: 100%;
+  }
 </style>
