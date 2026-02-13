@@ -1,0 +1,70 @@
+<section class="bg-gradient-to-r from-sky-700 to-sky-900 py-16 px-6">
+  <div class="container mx-auto text-center">
+    <h2 class="reveal reveal-up text-3xl md:text-4xl font-extrabold text-white mb-4">
+      La promocion termina con el Carnaval!
+    </h2>
+    <p class="reveal reveal-up reveal-delay-1 text-white/80 text-lg mb-8 max-w-xl mx-auto">
+      No dejes pasar esta oportunidad. Precios exclusivos que no se repiten.
+    </p>
+
+    <!-- Countdown Timer -->
+    <div class="reveal reveal-scale reveal-delay-2 flex justify-center gap-4 mb-10">
+      <div class="bg-white/15 backdrop-blur-sm rounded-xl px-4 py-3 min-w-[70px] border border-white/20">
+        <div id="cta-countdown-days" class="text-3xl font-bold text-white">00</div>
+        <div class="text-white/70 text-xs uppercase tracking-wider">Dias</div>
+      </div>
+      <div class="bg-white/15 backdrop-blur-sm rounded-xl px-4 py-3 min-w-[70px] border border-white/20">
+        <div id="cta-countdown-hours" class="text-3xl font-bold text-white">00</div>
+        <div class="text-white/70 text-xs uppercase tracking-wider">Horas</div>
+      </div>
+      <div class="bg-white/15 backdrop-blur-sm rounded-xl px-4 py-3 min-w-[70px] border border-white/20">
+        <div id="cta-countdown-minutes" class="text-3xl font-bold text-white">00</div>
+        <div class="text-white/70 text-xs uppercase tracking-wider">Min</div>
+      </div>
+      <div class="bg-white/15 backdrop-blur-sm rounded-xl px-4 py-3 min-w-[70px] border border-white/20">
+        <div id="cta-countdown-seconds" class="text-3xl font-bold text-white">00</div>
+        <div class="text-white/70 text-xs uppercase tracking-wider">Seg</div>
+      </div>
+    </div>
+
+    <!-- CTA Button -->
+    <a
+      href="https://wa.me/593959649714?text=Hola!%20Quiero%20aprovechar%20la%20promo%20de%20Carnaval"
+      target="_blank"
+      class="reveal reveal-scale reveal-delay-3 inline-block bg-amber-400 hover:bg-amber-500 text-sky-900 px-10 py-4 rounded-full text-lg font-bold shadow-lg btn-hover"
+    >
+      Quiero mi descuento ahora
+    </a>
+  </div>
+</section>
+
+<script is:inline>
+  // CTA Countdown timer - synced with hero
+  const ctaEndDate = new Date("2026-02-18T23:59:59-05:00").getTime();
+
+  function updateCtaCountdown() {
+    const now = new Date().getTime();
+    const distance = ctaEndDate - now;
+
+    if (distance <= 0) {
+      document.getElementById("cta-countdown-days").textContent = "00";
+      document.getElementById("cta-countdown-hours").textContent = "00";
+      document.getElementById("cta-countdown-minutes").textContent = "00";
+      document.getElementById("cta-countdown-seconds").textContent = "00";
+      return;
+    }
+
+    const days = Math.floor(distance / (1000 * 60 * 60 * 24));
+    const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+    const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+    const seconds = Math.floor((distance % (1000 * 60)) / 1000);
+
+    document.getElementById("cta-countdown-days").textContent = String(days).padStart(2, "0");
+    document.getElementById("cta-countdown-hours").textContent = String(hours).padStart(2, "0");
+    document.getElementById("cta-countdown-minutes").textContent = String(minutes).padStart(2, "0");
+    document.getElementById("cta-countdown-seconds").textContent = String(seconds).padStart(2, "0");
+  }
+
+  updateCtaCountdown();
+  setInterval(updateCtaCountdown, 1000);
+</script>

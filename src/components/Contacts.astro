@@ -1,16 +1,16 @@
 <section id="contactame" class="bg-gradient-to-b from-sky-50 to-sky-200 py-16">
   <div class="container mx-auto flex flex-col text-center px-6">
     <h1
-      class="text-sky-900 text-4xl md:text-5xl font-semibold mb-4 animate-fade-in-down"
+      class="reveal reveal-up text-sky-900 text-4xl md:text-5xl font-semibold mb-4"
     >
-      Contáctanos
+      Contactanos
     </h1>
-    <p class="text-sky-700 mb-8 lg:text-2xl italic max-w-2xl mx-auto">
-      "Contáctanos y resolveremos tus dudas con la mejor atención."
+    <p class="reveal reveal-up reveal-delay-1 text-sky-700 mb-8 lg:text-2xl italic max-w-2xl mx-auto">
+      "Contactanos y resolveremos tus dudas con la mejor atencion."
     </p>
     <div class="flex flex-col lg:flex-row justify-center items-center gap-12">
       <h2
-        class="text-sky-900 text-3xl md:text-4xl font-bold mb-6 animate-pulse"
+        class="reveal reveal-scale text-sky-900 text-3xl md:text-4xl font-bold mb-6"
       >
         +593 95 964 9714
       </h2>
@@ -19,7 +19,7 @@
   <div class="flex flex-col lg:flex-row justify-center items-center gap-12">
     <!-- Llamar directamente -->
     <div
-      class="w-full max-w-xs relative rounded-full cursor-pointer transition-all duration-300 delay-150 ease-in-out hover:scale-110 hover:-translate-y-1 p-px overflow-hidden shadow-lg shadow-sky-700/50"
+      class="reveal reveal-scale reveal-delay-1 w-full max-w-xs relative rounded-full cursor-pointer transition-all duration-300 delay-150 ease-in-out hover:scale-110 hover:-translate-y-1 p-px overflow-hidden shadow-lg shadow-sky-700/50"
     >
       <!-- Capa del borde animado -->
       <div
@@ -36,7 +36,7 @@
     </div>
     <!-- Ir al whatsapp -->
     <div
-      class="w-full max-w-xs relative rounded-full cursor-pointer transition-all duration-300 delay-150 ease-in-out hover:scale-110 hover:-translate-y-1 p-px overflow-hidden shadow-lg shadow-sky-700/50"
+      class="reveal reveal-scale reveal-delay-2 w-full max-w-xs relative rounded-full cursor-pointer transition-all duration-300 delay-150 ease-in-out hover:scale-110 hover:-translate-y-1 p-px overflow-hidden shadow-lg shadow-sky-700/50"
     >
       <!-- Capa del borde animado -->
       <div
@@ -63,7 +63,7 @@
     initial-value: 0deg;
   }
 
-  /* Animación del borde */
+  /* Animacion del borde */
   .animate-border-rotate {
     animation: border-rotate 3s linear infinite;
   }
@@ -85,21 +85,5 @@
     -webkit-mask-composite: xor;
     mask-composite: exclude;
     padding: 4px; /* Grosor del borde */
-  }
-
-  /* Animaciones adicionales */
-  .animate-fade-in-down {
-    animation: fadeInDown 1s ease-out;
-  }
-
-  @keyframes fadeInDown {
-    from {
-      opacity: 0;
-      transform: translateY(-20px);
-    }
-    to {
-      opacity: 1;
-      transform: translateY(0);
-    }
   }
 </style>

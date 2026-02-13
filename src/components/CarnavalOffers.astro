@@ -1,0 +1,105 @@
+---
+const offers = [
+  {
+    title: "Firmas con Descuento",
+    items: [
+      {
+        name: "Firma Electronica 1 ano",
+        oldPrice: "18.18",
+        newPrice: "14.99",
+        savings: "3.19",
+      },
+      {
+        name: "Firma Electronica 2 anos",
+        oldPrice: "29.29",
+        newPrice: "24.99",
+        savings: "4.30",
+      },
+    ],
+    whatsappMsg: "Hola! Quiero una firma electronica con descuento de Carnaval",
+  },
+  {
+    title: "Combo Firma + Sistema",
+    items: [
+      {
+        name: "Firma 1 ano + Plan anual facturacion",
+        oldPrice: "38.18",
+        newPrice: "29.99",
+        savings: "8.19",
+      },
+      {
+        name: "Firma 2 anos + Plan anual facturacion",
+        oldPrice: "49.29",
+        newPrice: "39.99",
+        savings: "9.30",
+      },
+    ],
+    whatsappMsg: "Hola! Me interesa el combo Firma + Sistema de Carnaval",
+  },
+  {
+    title: "Pack Premium",
+    items: [
+      {
+        name: "Firma 2 anos + Plan ilimitado mensual (3 meses gratis) + Soporte prioritario",
+        oldPrice: null,
+        newPrice: "59.99",
+        savings: null,
+      },
+    ],
+    whatsappMsg: "Hola! Quiero el Pack Premium de Carnaval",
+  },
+];
+---
+
+<section class="py-16 px-6 bg-sky-50">
+  <div class="container mx-auto">
+    <h2 class="reveal reveal-up text-3xl md:text-4xl font-extrabold text-center text-sky-900 mb-4">
+      Ofertas de Carnaval
+    </h2>
+    <p class="reveal reveal-up reveal-delay-1 text-center text-sky-700 mb-12 max-w-xl mx-auto">
+      Descuentos exclusivos que solo encontraras en esta temporada. No dejes pasar esta oportunidad!
+    </p>
+
+    <div class="grid grid-cols-1 lg:grid-cols-3 gap-8">
+      {offers.map((offer, offerIdx) => (
+        <div class={`reveal reveal-up reveal-delay-${offerIdx + 1} relative bg-white rounded-2xl shadow-lg overflow-hidden border border-sky-100 card-hover`}>
+          <!-- Ribbon Promo -->
+          <div class="absolute top-4 -right-8 bg-gradient-to-r from-amber-400 to-amber-500 text-white text-xs font-bold px-10 py-1 rotate-45 shadow-md">
+            Carnaval
+          </div>
+
+          <div class="p-6">
+            <h3 class="text-xl font-bold text-sky-800 mb-6 pr-8">{offer.title}</h3>
+
+            <div class="space-y-4">
+              {offer.items.map((item) => (
+                <div class="border border-sky-100 rounded-xl p-4 bg-sky-50/50">
+                  <p class="text-sky-700 text-sm font-medium mb-2">{item.name}</p>
+                  <div class="flex items-baseline gap-3">
+                    {item.oldPrice && (
+                      <span class="text-sky-400 line-through text-lg">${item.oldPrice}</span>
+                    )}
+                    <span class="text-2xl font-extrabold text-sky-900">${item.newPrice}</span>
+                  </div>
+                  {item.savings && (
+                    <span class="inline-block mt-2 bg-amber-100 text-amber-700 text-xs font-semibold px-3 py-1 rounded-full">
+                      Ahorras ${item.savings}
+                    </span>
+                  )}
+                </div>
+              ))}
+            </div>
+
+            <a
+              href={`https://wa.me/593959649714?text=${encodeURIComponent(offer.whatsappMsg)}`}
+              target="_blank"
+              class="mt-6 block w-full text-center bg-sky-600 hover:bg-sky-700 text-white py-3 rounded-full font-semibold btn-hover"
+            >
+              Contratar por WhatsApp
+            </a>
+          </div>
+        </div>
+      ))}
+    </div>
+  </div>
+</section>

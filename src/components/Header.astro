@@ -2,9 +2,6 @@
   class="flex flex-row items-center justify-between mx-auto container h-16 relative"
 >
   <!-- Logo -->
-  <!-- <div class="font-bold text-3xl lg:text-4xl text-sky-800 ml-4 sm:ml-0">
-        fac<span class="text-sky-600">ec</span>
-    </div> -->
   <a href="/">
     <div
       class="bg-gradient-to-r from-sky-400 to-sky-900 bg-clip-text text-transparent font-semibold text-4xl text-center"
@@ -12,11 +9,11 @@
       facec
     </div>
   </a>
-  <!-- Botón de menú móvil -->
+  <!-- Boton de menu movil -->
   <button
     id="menu-toggle"
     class="sm:hidden p-2 rounded mr-4 bg-sky-700 text-white font-bold"
-    aria-label="Abrir menú"
+    aria-label="Abrir menu"
   >
     <svg
       xmlns="http://www.w3.org/2000/svg"
@@ -33,22 +30,33 @@
     </svg>
   </button>
 
-  <!-- Menú para pantallas grandes -->
+  <!-- Menu para pantallas grandes -->
   <ul class="hidden sm:flex flex-row items-center space-x-6 text-sky-700 mr-4">
     <li class="hover:text-sky-900"><a href="#precios">Precios</a></li>
     <li class="hover:text-sky-900">
-      <a href="#caracteristicas">Características</a>
+      <a href="#caracteristicas">Caracteristicas</a>
     </li>
     <li class="hover:text-sky-900"><a href="/firma-electronica">Firmas</a></li>
+    <li>
+      <a
+        href="/carnaval"
+        class="relative inline-flex items-center gap-1 font-semibold text-amber-600 hover:text-amber-700"
+      >
+        Carnaval
+        <span class="inline-block bg-gradient-to-r from-amber-400 to-amber-500 text-white text-[10px] font-bold px-2 py-0.5 rounded-full leading-none">
+          PROMO
+        </span>
+      </a>
+    </li>
     <li class="hover:text-sky-900"><a href="#faq">FAQ</a></li>
     <li class="hover:text-sky-900">
-      <a href="#contactame">Contáctanos</a>
+      <a href="#contactame">Contactanos</a>
     </li>
     <li>
       <a
         href="https://app.facec.ec"
         target="_blank"
-        aria-label="Ir al inicio de sesión de la aplicación FACEC"
+        aria-label="Ir al inicio de sesion de la aplicacion FACEC"
         class="bg-gradient-to-r from-sky-300 to-sky-900 bg-clip-text text-transparent font-semibold"
       >
         Iniciar
@@ -56,19 +64,19 @@
     </li>
   </ul>
 
-  <!-- Fondo semi-transparente detrás del menú móvil -->
+  <!-- Fondo semi-transparente detras del menu movil -->
   <div
     id="menu-overlay"
     class="fixed inset-0 bg-sky-300/50 hidden transition-opacity duration-300 z-10"
   >
   </div>
 
-  <!-- Sidebar para móviles -->
+  <!-- Sidebar para moviles -->
   <div
     id="mobile-menu"
     class="fixed top-0 right-0 h-full w-64 bg-sky-50 shadow-lg transform translate-x-full transition-transform duration-300 sm:hidden flex flex-col items-center pt-10 z-20"
   >
-    <!-- Botón de Cerrar -->
+    <!-- Boton de Cerrar -->
     <button
       id="close-menu"
       class="absolute top-4 right-4 px-3 py-2 bg-white border border-sky-700 text-sky-700 rounded-full transition duration-300 hover:bg-sky-100"
@@ -76,16 +84,24 @@
       ✖
     </button>
 
-    <!-- Menú móvil -->
+    <!-- Menu movil -->
     <ul class="text-sky-700 w-full text-center">
       <li class="hover:bg-sky-200 p-4"><a href="#precios">Precios</a></li>
       <li class="hover:bg-sky-200 p-4">
-        <a href="#caracteristicas">Características</a>
+        <a href="#caracteristicas">Caracteristicas</a>
       </li>
       <li class="hover:bg-sky-200 p-4"><a href="/firma-electronica">Firmas</a></li>
+      <li class="hover:bg-sky-200 p-4">
+        <a href="/carnaval" class="inline-flex items-center gap-2 font-semibold text-amber-600">
+          Carnaval
+          <span class="bg-gradient-to-r from-amber-400 to-amber-500 text-white text-[10px] font-bold px-2 py-0.5 rounded-full leading-none">
+            PROMO
+          </span>
+        </a>
+      </li>
       <li class="hover:bg-sky-200 p-4"><a href="#faq">FAQ</a></li>
       <li class="hover:bg-sky-200 p-4">
-        <a href="#contactame">Contáctanos</a>
+        <a href="#contactame">Contactanos</a>
       </li>
       <li class="p-4">
         <a

@@ -1,0 +1,130 @@
+<section class="relative overflow-hidden bg-gradient-to-br from-sky-600 via-sky-500 to-amber-400 py-20 px-6">
+  <!-- Confeti CSS sutil -->
+  <div class="confetti-container absolute inset-0 pointer-events-none overflow-hidden">
+    <div class="confetti-piece confetti-1"></div>
+    <div class="confetti-piece confetti-2"></div>
+    <div class="confetti-piece confetti-3"></div>
+    <div class="confetti-piece confetti-4"></div>
+    <div class="confetti-piece confetti-5"></div>
+    <div class="confetti-piece confetti-6"></div>
+    <div class="confetti-piece confetti-7"></div>
+    <div class="confetti-piece confetti-8"></div>
+  </div>
+
+  <div class="container mx-auto text-center relative z-10">
+    <!-- Badge -->
+    <div class="reveal reveal-scale inline-block mb-6">
+      <span class="inline-flex items-center gap-2 bg-white/20 backdrop-blur-sm text-white px-5 py-2 rounded-full text-sm font-semibold border border-white/30 animate-pulse">
+        Promo Carnaval 2026
+      </span>
+    </div>
+
+    <!-- Titulo -->
+    <h1 class="reveal reveal-up text-4xl md:text-6xl font-extrabold text-white mb-4 drop-shadow-lg">
+      Carnaval de Descuentos FACEC
+    </h1>
+
+    <!-- Subtitulo -->
+    <p class="reveal reveal-up reveal-delay-1 text-lg md:text-2xl text-white/90 max-w-2xl mx-auto mb-8">
+      Aprovecha precios exclusivos en firmas electronicas, combos y mas. Promocion por tiempo limitado!
+    </p>
+
+    <!-- Countdown Timer -->
+    <div class="reveal reveal-scale reveal-delay-2 flex justify-center gap-4 mb-10">
+      <div class="bg-white/20 backdrop-blur-sm rounded-xl px-4 py-3 min-w-[70px] border border-white/30">
+        <div id="countdown-days" class="text-3xl font-bold text-white">00</div>
+        <div class="text-white/80 text-xs uppercase tracking-wider">Dias</div>
+      </div>
+      <div class="bg-white/20 backdrop-blur-sm rounded-xl px-4 py-3 min-w-[70px] border border-white/30">
+        <div id="countdown-hours" class="text-3xl font-bold text-white">00</div>
+        <div class="text-white/80 text-xs uppercase tracking-wider">Horas</div>
+      </div>
+      <div class="bg-white/20 backdrop-blur-sm rounded-xl px-4 py-3 min-w-[70px] border border-white/30">
+        <div id="countdown-minutes" class="text-3xl font-bold text-white">00</div>
+        <div class="text-white/80 text-xs uppercase tracking-wider">Min</div>
+      </div>
+      <div class="bg-white/20 backdrop-blur-sm rounded-xl px-4 py-3 min-w-[70px] border border-white/30">
+        <div id="countdown-seconds" class="text-3xl font-bold text-white">00</div>
+        <div class="text-white/80 text-xs uppercase tracking-wider">Seg</div>
+      </div>
+    </div>
+
+    <!-- CTA -->
+    <a
+      href="https://wa.me/593959649714?text=Hola!%20Me%20interesa%20la%20promo%20de%20Carnaval"
+      target="_blank"
+      class="reveal reveal-up reveal-delay-3 inline-block bg-white text-sky-700 px-8 py-4 rounded-full text-lg font-bold shadow-lg btn-hover hover:bg-sky-50"
+    >
+      Quiero mi descuento
+    </a>
+  </div>
+</section>
+
+<style>
+  /* Confeti CSS animado sutil */
+  .confetti-piece {
+    position: absolute;
+    width: 8px;
+    height: 8px;
+    opacity: 0.4;
+    border-radius: 2px;
+    animation: confetti-fall linear infinite;
+  }
+
+  .confetti-1 { left: 5%; background: #fbbf24; animation-duration: 8s; animation-delay: 0s; width: 6px; height: 10px; }
+  .confetti-2 { left: 15%; background: #fff; animation-duration: 10s; animation-delay: 1s; width: 8px; height: 6px; }
+  .confetti-3 { left: 30%; background: #38bdf8; animation-duration: 7s; animation-delay: 2s; width: 5px; height: 12px; }
+  .confetti-4 { left: 45%; background: #fbbf24; animation-duration: 9s; animation-delay: 0.5s; width: 10px; height: 6px; }
+  .confetti-5 { left: 60%; background: #fff; animation-duration: 11s; animation-delay: 3s; width: 7px; height: 7px; }
+  .confetti-6 { left: 75%; background: #38bdf8; animation-duration: 8s; animation-delay: 1.5s; width: 6px; height: 10px; }
+  .confetti-7 { left: 85%; background: #fbbf24; animation-duration: 10s; animation-delay: 2.5s; width: 9px; height: 5px; }
+  .confetti-8 { left: 95%; background: #fff; animation-duration: 7s; animation-delay: 0.8s; width: 5px; height: 8px; }
+
+  @keyframes confetti-fall {
+    0% {
+      transform: translateY(-10px) rotate(0deg);
+      opacity: 0;
+    }
+    10% {
+      opacity: 0.4;
+    }
+    90% {
+      opacity: 0.4;
+    }
+    100% {
+      transform: translateY(100vh) rotate(720deg);
+      opacity: 0;
+    }
+  }
+</style>
+
+<script is:inline>
+  // Countdown timer - fin de carnaval 18 de febrero 2026, 23:59:59
+  const endDate = new Date("2026-02-18T23:59:59-05:00").getTime();
+
+  function updateCountdown() {
+    const now = new Date().getTime();
+    const distance = endDate - now;
+
+    if (distance <= 0) {
+      document.getElementById("countdown-days").textContent = "00";
+      document.getElementById("countdown-hours").textContent = "00";
+      document.getElementById("countdown-minutes").textContent = "00";
+      document.getElementById("countdown-seconds").textContent = "00";
+      return;
+    }
+
+    const days = Math.floor(distance / (1000 * 60 * 60 * 24));
+    const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+    const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+    const seconds = Math.floor((distance % (1000 * 60)) / 1000);
+
+    document.getElementById("countdown-days").textContent = String(days).padStart(2, "0");
+    document.getElementById("countdown-hours").textContent = String(hours).padStart(2, "0");
+    document.getElementById("countdown-minutes").textContent = String(minutes).padStart(2, "0");
+    document.getElementById("countdown-seconds").textContent = String(seconds).padStart(2, "0");
+  }
+
+  updateCountdown();
+  setInterval(updateCountdown, 1000);
+</script>

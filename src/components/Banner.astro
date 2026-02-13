@@ -9,23 +9,22 @@ import ButtonAnimate from "./ButtonAnimate.astro";
     <div class="mx-4 md:ml-8 xl:ml-28 flex items-center">
         <div class="text-center sm:text-left">
             <h1
-                class="font-bold text-sky-800 text-2xl sm:text-3xl md:text-4xl xl:text-6xl"
+                class="reveal reveal-left font-bold text-sky-800 text-2xl sm:text-3xl md:text-4xl xl:text-6xl"
             >
                 Emite tus facturas electrónicas de manera facíl y rápida
             </h1>
-            <!-- <ButtonAnimate /> -->
             <a
                 href="https://app.facec.ec/login"
                 aria-label="Ir al inicio de sesión de la aplicación FACEC"
                 target="_blank"
             >
                 <div
-                    class="rounded-full w-fit bg-sky-700 shadow-lg shadow-sky-700/50 text-white md:text-xl px-8 py-2 my-8 font-bold transition delay-150 duration-300 ease-in-out hover:-translate-y-1 hover:scale-110 hover:bg-sky-700/70 animate-pulse"
+                    class="reveal reveal-up reveal-delay-2 rounded-full w-fit bg-sky-700 shadow-lg shadow-sky-700/50 text-white md:text-xl px-8 py-2 my-8 font-bold btn-hover hover:bg-sky-700/70 animate-pulse"
                 >
                     Iniciar sesión
                 </div>
             </a>
-            <section>
+            <section class="reveal reveal-up reveal-delay-3">
                 <h2
                     class="font-bold text-sky-800 md:text-2xl lg:text-3xl py-4 mb-4"
                 >
@@ -40,7 +39,7 @@ import ButtonAnimate from "./ButtonAnimate.astro";
         </div>
     </div>
     <!-- para la parte derecha en dispositivo sm -->
-    <div class="hidden sm:flex items-end">
+    <div class="reveal reveal-right hidden sm:flex items-end">
         <Image src={banner} class="bottom-0" width={1800} alt="Banner" />
     </div>
 </div>

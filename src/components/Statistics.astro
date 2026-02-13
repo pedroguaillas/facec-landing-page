@@ -1,24 +1,22 @@
 ---
-// Archivo: src/components/Stats.astro
-
 const stats = [
   { icon: "👥", label: "Clientes activos", value: 1204 },
   { icon: "🧾", label: "Facturas emitidas", value: 350918 },
-  { icon: "📦", label: "En la nube y fácil de usar", value: 100 },
+  { icon: "📦", label: "En la nube y facil de usar", value: 100 },
 ];
 ---
 
 <section class="py-16 text-center bg-sky-50">
-  <h2 class="text-4xl font-bold text-sky-900 mb-10">
-    📈 Nuestras cifras hablan por sí solas
+  <h2 class="reveal reveal-up text-4xl font-bold text-sky-900 mb-10">
+    Nuestras cifras hablan por si solas
   </h2>
 
   <div
     class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-8 max-w-5xl mx-auto px-4"
   >
     {
-      stats.map((item) => (
-        <div class="bg-white p-6 rounded-2xl shadow-lg">
+      stats.map((item, index) => (
+        <div class={`reveal reveal-scale reveal-delay-${index + 1} bg-white p-6 rounded-2xl shadow-lg card-hover`}>
           <div class="flex justify-center">
             <div class="text-6xl p-4 rounded-full bg-sky-900/20">{item.icon}</div>
           </div>
@@ -26,7 +24,7 @@ const stats = [
             class="text-3xl font-bold text-sky-900 mt-2 counter"
             data-target={item.value}
           >
-            1
+            0
           </div>
           <div class="text-sky-800 mt-1">{item.label}</div>
         </div>
@@ -36,15 +34,33 @@ const stats = [
 </section>
 
 <script is:inline>
-  document.addEventListener("DOMContentLoaded", () => {
-    const counters = document.querySelectorAll(".counter");
+  // Counter starts only when section scrolls into view
+  const statsSection = document.querySelector(".counter")?.closest("section");
+  if (statsSection) {
+    let started = false;
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting && !started) {
+            started = true;
+            startCounters();
+            observer.unobserve(entry.target);
+          }
+        });
+      },
+      { threshold: 0.2 }
+    );
+    observer.observe(statsSection);
+  }
 
+  function startCounters() {
+    const counters = document.querySelectorAll(".counter");
     counters.forEach((counter) => {
       const target = parseFloat(counter.getAttribute("data-target"));
       let count = 0;
       const isDecimal = target % 1 !== 0;
-      const duration = 1500; // duración total en ms
-      const frameRate = 60; // fps
+      const duration = 1500;
+      const frameRate = 60;
       const steps = Math.round(duration / (1000 / frameRate));
       const increment = target / steps;
 
@@ -56,7 +72,7 @@ const stats = [
           });
           return;
         }
-        counter.innerText = count.toLocaleString("es-EC", {
+        counter.innerText = Math.floor(count).toLocaleString("es-EC", {
           maximumFractionDigits: isDecimal ? 1 : 0,
         });
         requestAnimationFrame(update);
@@ -64,5 +80,5 @@ const stats = [
 
       requestAnimationFrame(update);
     });
-  });
+  }
 </script>
