@@ -1,0 +1,35 @@
+---
+import { getCurrentPromotion, getDaysRemaining } from "../data/sign-prices.js";
+
+const promo = getCurrentPromotion();
+if (!promo) return;
+
+const days = getDaysRemaining(promo);
+---
+
+<div class="bg-gradient-to-r from-violet-700 via-purple-700 to-rose-600 text-white py-4 px-4">
+    <div
+        class="container mx-auto flex flex-col sm:flex-row items-center justify-between gap-3 text-center sm:text-left"
+    >
+        <!-- Izquierda: badge + texto -->
+        <div class="flex items-center gap-3 flex-wrap justify-center sm:justify-start">
+            <span class="bg-rose-500 text-white text-xs font-bold px-3 py-1 rounded-full uppercase tracking-wide">
+                {promo.display.badge}
+            </span>
+            <span class="font-semibold text-sm sm:text-base">
+                {promo.display.title} &mdash; {promo.display.subtitle}
+            </span>
+        </div>
+
+        <!-- Derecha: urgencia + días -->
+        <div class="flex items-center gap-3 flex-shrink-0">
+            <span class="text-purple-200 text-sm hidden sm:block">
+                {promo.display.urgency}
+            </span>
+            <span class="bg-white/20 text-white text-sm font-bold px-4 py-1.5 rounded-full whitespace-nowrap">
+                ⏳ {days}
+                {days === 1 ? "día" : "días"} restantes
+            </span>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,360 @@
+---
+name: seo-ecuador-facturacion
+description: Optimiza SEO para landing pages de facturación electrónica y firma digital en Ecuador. Keywords locales, meta tags, schema markup y contenido optimizado para SRI y mercado ecuatoriano. Usa cuando el usuario pide "optimizar SEO", "keywords Ecuador", "posicionamiento facturación", "meta tags SRI".
+---
+
+# SEO Skill para Facturación Electrónica Ecuador
+
+## Triggers
+Activa este skill cuando el usuario mencione:
+- "optimiza SEO"
+- "keywords para facturación"
+- "posicionamiento Google Ecuador"
+- "meta tags"
+- "mejorar ranking"
+- "SEO local Ecuador"
+
+## Contexto del Mercado
+
+### Competidores principales:
+- Facturando Ecuador
+- Comprobantes Electrónicos
+- Defontana
+- ContaFree
+- Alegra
+- Bind ERP
+
+### Pain points del usuario:
+- Buscan "facturación electrónica Ecuador"
+- Necesitan integración con SRI
+- Quieren soporte local
+- Comparar precios
+- Ver demos/pruebas gratis
+
+## Keywords Strategy
+
+### Primarias (High Volume):
+```
+facturación electrónica Ecuador (1,900/mes)
+firma electrónica Ecuador (1,300/mes)
+sistema facturación SRI (880/mes)
+software facturación (720/mes)
+firma digital Ecuador (590/mes)
+```
+
+### Long-tail (Intent Alto):
+```
+cómo facturar electrónicamente en Ecuador
+integración SRI facturación automática
+software contabilidad PYMES Ecuador
+firma electrónica certificada MINTEL
+facturación online para negocios
+sistema punto de venta con factura digital
+precio firma electrónica Ecuador 2024
+```
+
+### Local (Geo-targeting):
+```
+facturación electrónica Quito
+firma digital Guayaquil
+software contable Cuenca
+sistema facturación Ambato
+```
+
+### Features específicas:
+```
+facturación electrónica con inventario
+integración SRI API
+punto de emisión múltiple
+facturación sin internet Ecuador
+app móvil facturación Ecuador
+```
+
+## Meta Tags Template
+
+### Title Tag Formula:
+```html
+<!-- Página principal -->
+<title>Facturación Electrónica Ecuador | Software SRI [2024] - [TuMarca]</title>
+
+<!-- Páginas internas -->
+<title>[Feature] | Facturación Electrónica SRI - [TuMarca]</title>
+
+<!-- Características -->
+- Max 60 caracteres
+- Keyword al inicio
+- Incluir año actual
+- Call to action implícito
+```
+
+### Meta Description:
+```html
+<meta name="description" content="Sistema de facturación electrónica 
+integrado con SRI ✓ Firma digital incluida ✓ Soporte 24/7 ✓ Desde $29/mes 
+✓ Prueba gratis 15 días. +500 empresas en Ecuador confían en nosotros.">
+
+<!-- Características -->
+- 150-160 caracteres
+- Incluir precio si es competitivo
+- Beneficios con símbolos ✓
+- Call to action claro
+- Proof social
+```
+
+### OpenGraph (Redes Sociales):
+```html
+<meta property="og:title" content="Facturación Electrónica Ecuador | Integración SRI Automática">
+<meta property="og:description" content="Software #1 en Ecuador para facturación electrónica. Integración SRI + Firma Digital desde $29/mes.">
+<meta property="og:image" content="https://tudominio.com/og-image-facturas.jpg">
+<meta property="og:url" content="https://tudominio.com">
+<meta property="og:type" content="website">
+<meta property="og:locale" content="es_EC">
+```
+
+### Twitter Cards:
+```html
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Facturación Electrónica SRI Ecuador">
+<meta name="twitter:description" content="Sistema completo de facturación + firma digital. Integración SRI automática.">
+<meta name="twitter:image" content="https://tudominio.com/twitter-card.jpg">
+```
+
+## Schema Markup (Structured Data)
+
+### SoftwareApplication:
+```json
+{
+  "@context": "https://schema.org",
+  "@type": "SoftwareApplication",
+  "name": "[TuMarca] - Facturación Electrónica Ecuador",
+  "applicationCategory": "BusinessApplication",
+  "operatingSystem": "Web, Windows, macOS, Linux",
+  "offers": {
+    "@type": "Offer",
+    "price": "29.00",
+    "priceCurrency": "USD",
+    "priceValidUntil": "2024-12-31"
+  },
+  "aggregateRating": {
+    "@type": "AggregateRating",
+    "ratingValue": "4.8",
+    "ratingCount": "156"
+  },
+  "description": "Sistema de facturación electrónica integrado con SRI Ecuador",
+  "featureList": [
+    "Integración automática SRI",
+    "Firma electrónica incluida",
+    "Facturación sin internet",
+    "App móvil Android/iOS",
+    "Soporte técnico 24/7"
+  ]
+}
+```
+
+### LocalBusiness (Para oficinas físicas):
+```json
+{
+  "@context": "https://schema.org",
+  "@type": "LocalBusiness",
+  "name": "[TuMarca]",
+  "address": {
+    "@type": "PostalAddress",
+    "streetAddress": "Av. República E7-253",
+    "addressLocality": "Quito",
+    "addressRegion": "Pichincha",
+    "postalCode": "170515",
+    "addressCountry": "EC"
+  },
+  "telephone": "+593-2-XXX-XXXX",
+  "openingHours": "Mo-Fr 09:00-18:00",
+  "priceRange": "$$"
+}
+```
+
+### FAQPage:
+```json
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "¿Cómo funciona la facturación electrónica en Ecuador?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "La facturación electrónica en Ecuador requiere..."
+      }
+    }
+  ]
+}
+```
+
+## URLs SEO-Friendly
+
+### Estructura recomendada:
+```
+✅ BIEN:
+/facturacion-electronica-ecuador
+/firma-digital-certificada
+/precios-facturacion
+/integracion-sri
+/casos-exito-pymes
+
+❌ MAL:
+/page?id=123
+/producto.php?cat=facturacion
+/es/es/productos/factura
+```
+
+### Patrón:
+- Palabras separadas por guiones (-)
+- Lowercase
+- Sin caracteres especiales
+- Keywords en la URL
+- Max 3-5 palabras
+
+## Content Strategy
+
+### Páginas esenciales:
+1. **Homepage**: Facturación electrónica + firma digital
+2. **/caracteristicas**: Features detallados + SRI
+3. **/precios**: Tabla comparativa con competidores
+4. **/integracion-sri**: Guía técnica
+5. **/casos-exito**: Testimonios con empresas reales
+6. **/blog**: Contenido educativo
+7. **/demo**: Prueba gratuita
+8. **/soporte**: Base conocimiento + tickets
+
+### Blog topics (SEO):
+- "Cómo emitir facturas electrónicas en Ecuador [Guía 2024]"
+- "Requisitos SRI para facturación electrónica"
+- "Firma electrónica vs firma digital: diferencias"
+- "Top 10 errores al facturar electrónicamente"
+- "Integración SRI paso a paso"
+- "Comparativa: [TuMarca] vs [Competidor]"
+
+### Formato contenido:
+- **H1**: 1 por página (keyword principal)
+- **H2**: Subtemas con long-tail keywords
+- **Párrafos**: 2-3 líneas max
+- **Listas**: Bullet points para escaneabilidad
+- **CTAs**: Cada 300-400 palabras
+- **Imágenes**: Alt text descriptivo con keywords
+
+## Technical SEO
+
+### Performance:
+```html
+<!-- Preload fonts -->
+<link rel="preload" href="/fonts/primary.woff2" as="font" crossorigin>
+
+<!-- Lazy loading images -->
+<img loading="lazy" src="dashboard.jpg" alt="panel facturación electrónica SRI">
+
+<!-- Critical CSS inline -->
+<style>/* Critical above-fold CSS */</style>
+```
+
+### Mobile Optimization:
+```html
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="manifest" href="/manifest.json">
+<meta name="theme-color" content="#0A66C2">
+```
+
+### Sitemap:
+```xml
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+  <url>
+    <loc>https://tudominio.com/facturacion-electronica-ecuador</loc>
+    <lastmod>2024-03-16</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>1.0</priority>
+  </url>
+</urlset>
+```
+
+### Robots.txt:
+```
+User-agent: *
+Allow: /
+Disallow: /admin/
+Disallow: /api/
+
+Sitemap: https://tudominio.com/sitemap.xml
+```
+
+## Local SEO (Google Business)
+
+### Optimización GMB:
+- Categoría: "Software de contabilidad"
+- Servicios: Listar facturación, firma digital, soporte
+- Fotos: Oficina, equipo, capturas software
+- Posts semanales: Actualizaciones, tips, ofertas
+- Reviews: Responder todas (buenas y malas)
+
+### Citations (NAP):
+Registrar en:
+- Google Business Profile
+- Bing Places
+- Facebook Business
+- LinkedIn Company
+- Páginas Amarillas Ecuador
+- Directorios locales
+
+## Link Building Strategy
+
+### Guest posts:
+- Blogs de contabilidad Ecuador
+- Portales PYMES
+- Medios tech locales
+- Asociaciones empresariales
+
+### Contenido linkeable:
+- Guía definitiva facturación Ecuador (PDF)
+- Calculadora impuestos SRI
+- Plantillas facturas
+- Comparador software contable
+
+### Menciones:
+- Casos de éxito con clientes
+- Partnerships con contadores
+- Integraciones con otros software
+
+## Checklist SEO por Página
+
+```markdown
+□ Title tag optimizado (<60 chars)
+□ Meta description (<160 chars)
+□ H1 con keyword principal
+□ H2-H6 con long-tail keywords
+□ URLs amigables
+□ Alt text en imágenes
+□ Schema markup implementado
+□ Internal linking (3-5 links)
+□ CTA visible above fold
+□ Tiempo carga <3 segundos
+□ Mobile responsive
+□ OpenGraph tags
+□ Canonical URL definido
+```
+
+## Herramientas Recomendadas
+
+- **Keywords**: Ubersuggest, SEMrush, Ahrefs
+- **Technical SEO**: Google Search Console, Screaming Frog
+- **Performance**: Google PageSpeed, GTmetrix
+- **Tracking**: Google Analytics 4, Hotjar
+- **Local**: Google Business Profile, BrightLocal
+
+## Métricas Clave
+
+### Monitorear mensualmente:
+- **Posiciones**: Top 10 keywords
+- **Tráfico orgánico**: Sesiones/mes
+- **CTR**: Search Console
+- **Conversiones**: Demos solicitados
+- **Bounce rate**: <50%
+- **Page speed**: <3s
+- **Backlinks**: Cantidad + calidad

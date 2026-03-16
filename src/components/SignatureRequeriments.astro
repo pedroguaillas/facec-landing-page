@@ -1,46 +1,65 @@
-<section id="firmas" class="bg-sky-50">
-    <div class="container mx-auto flex flex-col text-center py-12 px-6">
+<section id="firmas" class="bg-gradient-to-br from-violet-50 to-purple-50 py-16">
+    <div class="container mx-auto flex flex-col text-center px-6">
       <!-- Titulo principal -->
-      <h2 class="reveal reveal-up text-sky-900 text-4xl lg:text-5xl font-extrabold mb-4">
+      <span class="reveal reveal-up inline-block self-center bg-rose-100 text-rose-600 text-xs font-semibold px-4 py-1 rounded-full mb-4 uppercase tracking-wide">
+        Documentos necesarios
+      </span>
+      <h2 class="reveal reveal-up text-violet-900 text-4xl lg:text-5xl font-extrabold mb-4">
         Requisitos
       </h2>
 
-      <!-- Subtitulo persuasivo -->
-      <p class="reveal reveal-up reveal-delay-1 text-sky-700 text-lg lg:text-2xl mb-6">
-        Somos <span class="font-semibold text-sky-900">distribuidores oficiales</span> de
+      <!-- Subtitulo -->
+      <p class="reveal reveal-up reveal-delay-1 text-purple-700 text-lg lg:text-xl mb-10 max-w-2xl mx-auto">
+        Somos <span class="font-semibold text-violet-900">distribuidores oficiales</span> de
         <span class="font-semibold">UANATACA ECUADOR S.A.</span>, entidad certificada por <span class="font-semibold">ARCOTEL</span>.
-        Obten tu firma electronica de forma rapida, segura y con respaldo garantizado.
+        Obtén tu firma electrónica de forma rápida, segura y con respaldo garantizado.
       </p>
 
       <!-- Contenedor de requisitos -->
       <div class="flex flex-col lg:flex-row justify-between gap-8">
         <!-- Persona Natural -->
-        <div class="reveal reveal-up reveal-delay-1 bg-white shadow-md rounded-xl p-6 w-full card-hover">
-          <h2 class="text-sky-900 text-2xl font-bold mb-4 text-center">
+        <div class="reveal reveal-up reveal-delay-1 bg-white shadow-md rounded-2xl p-8 w-full border border-violet-100 card-hover">
+          <div class="w-12 h-12 bg-violet-100 rounded-full flex items-center justify-center text-2xl mx-auto mb-4">👤</div>
+          <h3 class="text-violet-900 text-2xl font-bold mb-5 text-center">
             Persona Natural
-          </h2>
-          <ol class="list-decimal list-inside text-sky-800 text-left space-y-2">
-            <li>Foto de la cedula anverso y reverso</li>
-            <li>Selfie mostrando la cedula</li>
-            <li>RUC actualizado en PDF (para facturar)</li>
-            <li>Correo electronico valido</li>
-            <li>Numero celular para codigo de verificacion</li>
+          </h3>
+          <ol class="text-left space-y-3">
+            {[
+              "Foto de la cédula anverso y reverso",
+              "Selfie mostrando la cédula",
+              "RUC actualizado en PDF (para facturar)",
+              "Correo electrónico válido",
+              "Número celular para código de verificación",
+            ].map((item, i) => (
+              <li class="flex items-start gap-3">
+                <span class="flex-shrink-0 w-6 h-6 bg-violet-600 text-white rounded-full flex items-center justify-center text-xs font-bold mt-0.5">{i + 1}</span>
+                <span class="text-gray-600">{item}</span>
+              </li>
+            ))}
           </ol>
         </div>
 
         <!-- Persona Juridica -->
-        <div class="reveal reveal-up reveal-delay-2 bg-white shadow-md rounded-xl p-6 w-full card-hover">
-          <h2 class="text-sky-900 text-2xl font-bold mb-4 text-center">
-            Persona Juridica
-          </h2>
-          <ol class="list-decimal list-inside text-sky-800 text-left space-y-2">
-            <li>Foto de la cedula anverso y reverso</li>
-            <li>Selfie mostrando la cedula</li>
-            <li>RUC actualizado en PDF</li>
-            <li>Correo electronico valido</li>
-            <li>Numero celular para codigo de verificacion</li>
-            <li>Nombramiento vigente</li>
-            <li>Constitucion o escritura de la empresa</li>
+        <div class="reveal reveal-up reveal-delay-2 bg-white shadow-md rounded-2xl p-8 w-full border border-rose-100 card-hover">
+          <div class="w-12 h-12 bg-rose-100 rounded-full flex items-center justify-center text-2xl mx-auto mb-4">🏢</div>
+          <h3 class="text-violet-900 text-2xl font-bold mb-5 text-center">
+            Persona Jurídica
+          </h3>
+          <ol class="text-left space-y-3">
+            {[
+              "Foto de la cédula anverso y reverso",
+              "Selfie mostrando la cédula",
+              "RUC actualizado en PDF",
+              "Correo electrónico válido",
+              "Número celular para código de verificación",
+              "Nombramiento vigente",
+              "Constitución o escritura de la empresa",
+            ].map((item, i) => (
+              <li class="flex items-start gap-3">
+                <span class="flex-shrink-0 w-6 h-6 bg-rose-500 text-white rounded-full flex items-center justify-center text-xs font-bold mt-0.5">{i + 1}</span>
+                <span class="text-gray-600">{item}</span>
+              </li>
+            ))}
           </ol>
         </div>
       </div>

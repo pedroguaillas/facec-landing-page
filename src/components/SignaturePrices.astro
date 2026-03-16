@@ -1,76 +1,143 @@
-<section class="container mx-auto py-16 px-4">
-  <h2 class="reveal reveal-up text-3xl font-bold mb-6 text-center text-sky-800">
-    Precios de la Firma Electronica
-  </h2>
-  <p class="reveal reveal-up reveal-delay-1 text-center text-sky-700 mb-12 max-w-xl mx-auto">
-    Elige la duracion que mas se ajuste a tus necesidades. Todos los certificados se entregan en formato <span class="font-medium">.p12</span>, compatibles con los sistemas autorizados por la autoridad tributaria.
-  </p>
+---
+import { getCurrentPromotion } from "../data/sign-prices.js";
 
-  <!-- Grid para las tarjetas -->
-  <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
+const promo = getCurrentPromotion();
 
-    <div class="reveal reveal-up reveal-delay-1 bg-white border border-sky-200 rounded-xl shadow-md p-6 text-center flex flex-col justify-between card-hover">
-      <h3 class="text-xl font-semibold text-sky-800 mb-2">7 dias</h3>
-      <p class="text-3xl font-bold text-sky-900 mb-2">$7.77</p>
-      <p class="text-sky-600 mb-6 text-sm">Certificado valido por una semana.</p>
-      <a href="https://wa.me/593959649714" target="_blank" class="bg-sky-600 text-white py-2 px-4 rounded-full hover:bg-sky-700 btn-hover">
-        Contratar
-      </a>
+// Mapa period → pricing de la promo activa
+const promoMap = {};
+if (promo) {
+    for (const p of promo.pricings) {
+        promoMap[p.period] = p;
+    }
+}
+
+// Planes fijos (sin promo)
+const fixedPlans = [
+    { label: "7 días", price: 7.77, desc: "Certificado válido por una semana." },
+    { label: "30 días", price: 9.99, desc: "Certificado válido por 1 mes." },
+    { label: "1 año", price: 18.18, desc: "Certificado válido por un año." },
+];
+
+// Planes con posible promo (2-5 años)
+const annualPlans = [
+    { period: 2, label: "2 años", normalPrice: 29.29, desc: "Certificado válido por dos años." },
+    { period: 3, label: "3 años", normalPrice: 39.39, desc: "Certificado válido por tres años." },
+    { period: 4, label: "4 años", normalPrice: 49.49, desc: "Certificado válido por cuatro años." },
+    { period: 5, label: "5 años", normalPrice: 59.59, desc: "Certificado válido por cinco años." },
+];
+---
+
+<section id="precios" class="container mx-auto py-16 px-4">
+    <div class="text-center mb-3">
+        <span
+            class="reveal reveal-up inline-block bg-violet-100 text-violet-700 text-xs font-semibold px-4 py-1 rounded-full mb-4 uppercase tracking-wide"
+        >
+            Planes disponibles
+        </span>
+        <h2 class="reveal reveal-up text-3xl font-extrabold text-violet-900">Precios de la Firma Electrónica</h2>
     </div>
 
-    <div class="reveal reveal-up reveal-delay-2 bg-white border border-sky-200 rounded-xl shadow-md p-6 text-center flex flex-col justify-between card-hover">
-      <h3 class="text-xl font-semibold text-sky-800 mb-2">30 dias</h3>
-      <p class="text-3xl font-bold text-sky-900 mb-2">$9.99</p>
-      <p class="text-sky-600 mb-6 text-sm">Certificado valido por 1 mes.</p>
-      <a href="https://wa.me/593959649714" target="_blank" class="bg-sky-600 text-white py-2 px-4 rounded-full hover:bg-sky-700 btn-hover">
-        Contratar
-      </a>
+    {
+        promo && (
+            <p class="reveal reveal-up reveal-delay-1 text-center mb-2">
+                <span class="inline-flex items-center gap-2 bg-violet-100 text-violet-700 text-sm font-semibold px-4 py-1.5 rounded-full">
+                    <span>♀</span>
+                    <span>
+                        {promo.display.title} · {promo.display.badge} en planes anuales
+                    </span>
+                </span>
+            </p>
+        )
+    }
+
+    <p class="reveal reveal-up reveal-delay-1 text-center text-gray-500 mb-12 max-w-xl mx-auto">
+        Elige la duración que más se ajuste a tus necesidades. Todos los certificados se entregan en formato <span
+            class="font-medium">.p12</span
+        >, compatibles con los sistemas autorizados por la autoridad tributaria.
+    </p>
+
+    <!-- Planes cortos (sin promo) -->
+    <div class="grid grid-cols-1 sm:grid-cols-3 gap-6 mb-8">
+        {
+            fixedPlans.map((plan, i) => (
+                <div
+                    class={`reveal reveal-up reveal-delay-${i + 1} bg-white border border-gray-100 rounded-2xl shadow-sm p-6 text-center flex flex-col justify-between card-hover`}
+                >
+                    <h3 class="text-xl font-semibold text-violet-800 mb-2">{plan.label}</h3>
+                    <p class="text-3xl font-bold text-violet-900 mb-2">${plan.price.toFixed(2)}</p>
+                    <p class="text-gray-400 mb-6 text-sm">{plan.desc}</p>
+                    <a
+                        href="https://wa.me/593959649714"
+                        target="_blank"
+                        class="bg-violet-600 text-white py-2 px-4 rounded-full hover:bg-violet-700 btn-hover"
+                    >
+                        Contratar
+                    </a>
+                </div>
+            ))
+        }
     </div>
 
-    <div class="reveal reveal-up reveal-delay-3 bg-white border border-sky-200 rounded-xl shadow-md p-6 text-center flex flex-col justify-between card-hover">
-      <h3 class="text-xl font-semibold text-sky-800 mb-2">1 ano</h3>
-      <p class="text-3xl font-bold text-sky-900 mb-2">$18.18</p>
-      <p class="text-sky-600 mb-6 text-sm">Certificado valido por un ano.</p>
-      <a href="https://wa.me/593959649714" target="_blank" class="bg-sky-600 text-white py-2 px-4 rounded-full hover:bg-sky-700 btn-hover">
-        Contratar
-      </a>
+    <!-- Planes anuales (con promo si aplica) -->
+    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+        {
+            annualPlans.map((plan, i) => {
+                const promoPricing = promoMap[plan.period];
+                const hasPromo = !!promoPricing;
+                const isPopular = plan.period === 2 && hasPromo;
+
+                return (
+                    <div
+                        class={`reveal reveal-up reveal-delay-${i + 1} relative rounded-xl shadow-md p-6 text-center flex flex-col justify-between card-hover border-2 ${hasPromo ? "border-violet-400 bg-white" : "border-gray-100 bg-white"}`}
+                    >
+                        {isPopular && (
+                            <span class="absolute -top-3 left-1/2 -translate-x-1/2 bg-rose-500 text-white text-xs font-bold px-3 py-1 rounded-full whitespace-nowrap">
+                                ⭐ Más popular
+                            </span>
+                        )}
+
+                        {hasPromo && (
+                            <span class="absolute top-3 right-3 bg-violet-600 text-white text-xs font-bold px-2 py-0.5 rounded-full">
+                                {promo.display.badge}
+                            </span>
+                        )}
+
+                        <h3 class={`text-xl font-semibold mb-2 ${hasPromo ? "text-violet-800" : "text-violet-800"}`}>
+                            {plan.label}
+                        </h3>
+
+                        {hasPromo ? (
+                            <div class="mb-2">
+                                <p class="text-sm line-through text-gray-400">${plan.normalPrice.toFixed(2)}</p>
+                                <p class="text-3xl font-bold text-violet-700">${promoPricing.promoPrice.toFixed(2)}</p>
+                                <span class="inline-block mt-1 text-xs font-semibold bg-rose-100 text-rose-600 px-2 py-0.5 rounded-full">
+                                    Ahorras ${promoPricing.savings.toFixed(2)}
+                                </span>
+                            </div>
+                        ) : (
+                            <p class="text-3xl font-bold text-sky-900 mb-2">${plan.normalPrice.toFixed(2)}</p>
+                        )}
+
+                        <p class={`mb-6 text-sm ${hasPromo ? "text-violet-600" : "text-sky-600"}`}>{plan.desc}</p>
+
+                        <a
+                            href="https://wa.me/593959649714"
+                            target="_blank"
+                            class={`py-2 px-4 rounded-full btn-hover text-white ${hasPromo ? "bg-violet-600 hover:bg-violet-700" : "bg-sky-600 hover:bg-sky-700"}`}
+                        >
+                            Contratar
+                        </a>
+                    </div>
+                );
+            })
+        }
     </div>
 
-    <div class="reveal reveal-up reveal-delay-1 bg-white border border-sky-200 rounded-xl shadow-md p-6 text-center flex flex-col justify-between card-hover">
-      <h3 class="text-xl font-semibold text-sky-800 mb-2">2 anos</h3>
-      <p class="text-3xl font-bold text-sky-900 mb-2">$29.29</p>
-      <p class="text-sky-600 mb-6 text-sm">Certificado valido por dos anos.</p>
-      <a href="https://wa.me/593959649714" target="_blank" class="bg-sky-600 text-white py-2 px-4 rounded-full hover:bg-sky-700 btn-hover">
-        Contratar
-      </a>
-    </div>
-
-    <div class="reveal reveal-up reveal-delay-2 bg-white border border-sky-200 rounded-xl shadow-md p-6 text-center flex flex-col justify-between card-hover">
-      <h3 class="text-xl font-semibold text-sky-800 mb-2">3 anos</h3>
-      <p class="text-3xl font-bold text-sky-900 mb-2">$39.39</p>
-      <p class="text-sky-600 mb-6 text-sm">Certificado valido por tres anos.</p>
-      <a href="https://wa.me/593959649714" target="_blank" class="bg-sky-600 text-white py-2 px-4 rounded-full hover:bg-sky-700 btn-hover">
-        Contratar
-      </a>
-    </div>
-
-    <div class="reveal reveal-up reveal-delay-3 bg-white border border-sky-200 rounded-xl shadow-md p-6 text-center flex flex-col justify-between card-hover">
-      <h3 class="text-xl font-semibold text-sky-800 mb-2">4 anos</h3>
-      <p class="text-3xl font-bold text-sky-900 mb-2">$49.49</p>
-      <p class="text-sky-600 mb-6 text-sm">Certificado valido por cuatro anos.</p>
-      <a href="https://wa.me/593959649714" target="_blank" class="bg-sky-600 text-white py-2 px-4 rounded-full hover:bg-sky-700 btn-hover">
-        Contratar
-      </a>
-    </div>
-
-    <div class="reveal reveal-up reveal-delay-1 bg-white border border-sky-200 rounded-xl shadow-md p-6 text-center flex flex-col justify-between card-hover">
-      <h3 class="text-xl font-semibold text-sky-800 mb-2">5 anos</h3>
-      <p class="text-3xl font-bold text-sky-900 mb-2">$59.59</p>
-      <p class="text-sky-600 mb-6 text-sm">Certificado valido por cinco anos.</p>
-      <a href="https://wa.me/593959649714" target="_blank" class="bg-sky-600 text-white py-2 px-4 rounded-full hover:bg-sky-700 btn-hover">
-        Contratar
-      </a>
-    </div>
-
-  </div>
+    {
+        promo && (
+            <p class="reveal reveal-up text-center text-xs text-gray-400 mt-6">
+                {promo.terms[0]} · {promo.terms[1]}
+            </p>
+        )
+    }
 </section>

@@ -1,0 +1,74 @@
+---
+name: promo-landing
+description: Crea páginas de aterrizaje para promociones temporales (Mes de la Mujer, Carnaval, Navidad, etc.) en el proyecto facec-landing-page. Genera hero, precios con descuento, beneficios y CTA. Usa cuando el usuario pida "crear promo", "agregar página promocional", "landing de oferta" o similar.
+---
+
+# Skill: Crear Landing Page Promocional
+
+## Triggers
+Activa este skill cuando el usuario mencione:
+- "crear página de promoción"
+- "agregar promo" / "nueva oferta"
+- "landing para [evento/fecha]"
+- "página de descuento"
+
+## Convenciones del proyecto
+
+### Naming
+- Componentes: `[PromoNombre]Hero.astro`, `[PromoNombre]Prices.astro`, `[PromoNombre]Benefits.astro`, `[PromoNombre]Cta.astro`
+- Página: `/src/pages/[slug-promo].astro`
+- URL SEO-friendly: `/mes-de-la-mujer`, `/black-friday`, `/navidad-2026`
+
+### Paleta de colores por ocasión
+- **Mes de la Mujer / Día de la Mujer**: violet/purple/rose (`violet-600`, `purple-700`, `rose-500`)
+- **Carnaval**: amarillo/naranja (`yellow-400`, `orange-500`)
+- **Navidad**: rojo/verde (`red-600`, `green-700`)
+- **Genérico**: sky (`sky-600`, `sky-800`)
+
+### Fuente de datos
+Siempre leer `src/data/promotions.js` para precios y datos de la promo activa.
+Usar `promotionsCatalog` para importar precios en el frontmatter de Astro.
+
+### Estructura de página
+```astro
+---
+import Layout from "../layouts/Layout.astro";
+import [Promo]Hero from "../components/[Promo]Hero.astro";
+import [Promo]Prices from "../components/[Promo]Prices.astro";
+import [Promo]Benefits from "../components/[Promo]Benefits.astro";
+import [Promo]Cta from "../components/[Promo]Cta.astro";
+import { getPromotionById } from "../data/promotions.js";
+const promo = getPromotionById("[promo-id]");
+---
+<Layout title={promo.seo.title} description={promo.seo.description}>
+  <[Promo]Hero promo={promo} />
+  <[Promo]Prices promo={promo} />
+  <[Promo]Benefits promo={promo} />
+  <[Promo]Cta promo={promo} />
+</Layout>
+```
+
+### Hero con badge y cuenta regresiva
+- Badge con color de la ocasión en la esquina superior
+- Título grande con el nombre de la promo
+- Precio estrella (el más económico de los pricings)
+- Countdown con JS puro hasta `promo.period.endDate`
+
+### Tarjetas de precios
+- Mostrar precio tachado (normalPrice) + precio promo (promoPrice)
+- Badge de ahorro (`savings`) en cada tarjeta
+- Card destacada para el plan más vendido (2 o 3 años)
+- Botón WhatsApp con `https://wa.me/593959649714`
+
+### SEO
+Usar datos de `promo.seo.title` y `promo.seo.description` directamente en el Layout.
+Añadir urgency text visible: `promo.display.urgency`
+
+## Checklist antes de terminar
+- [ ] Componentes creados en `/src/components/`
+- [ ] Página creada en `/src/pages/`
+- [ ] Datos importados desde `promotions.js`
+- [ ] Countdown funcional con JS vanilla
+- [ ] Botones WhatsApp correctos
+- [ ] Animaciones reveal aplicadas
+- [ ] SEO title/description desde datos
