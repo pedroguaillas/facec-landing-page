@@ -1,0 +1,150 @@
+---
+const comprobantes = [
+  {
+    icon: "🧾",
+    title: "Facturas",
+    desc: "Emite facturas electrónicas válidas ante el SRI para venta de bienes y servicios.",
+    tag: "Más usado",
+    tagColor: "bg-sky-100 text-sky-700",
+    border: "border-sky-100",
+    accent: "from-sky-400 to-sky-300",
+    iconBg: "bg-sky-100",
+  },
+  {
+    icon: "↩️",
+    title: "Notas de crédito",
+    desc: "Anula o modifica facturas emitidas de forma ágil y con respaldo electrónico.",
+    tag: "Devoluciones",
+    tagColor: "bg-rose-100 text-rose-600",
+    border: "border-rose-100",
+    accent: "from-rose-400 to-rose-300",
+    iconBg: "bg-rose-100",
+  },
+  {
+    icon: "📋",
+    title: "Retenciones",
+    desc: "Genera comprobantes de retención en la fuente e IVA de forma automática.",
+    tag: "Retención",
+    tagColor: "bg-amber-100 text-amber-700",
+    border: "border-amber-100",
+    accent: "from-amber-400 to-amber-300",
+    iconBg: "bg-amber-100",
+  },
+  {
+    icon: "🚚",
+    title: "Guías de remisión",
+    desc: "Documenta el traslado de mercadería con guías de remisión electrónicas.",
+    tag: "Logística",
+    tagColor: "bg-emerald-100 text-emerald-700",
+    border: "border-emerald-100",
+    accent: "from-emerald-400 to-emerald-300",
+    iconBg: "bg-emerald-100",
+  },
+  {
+    icon: "🛒",
+    title: "Liquidaciones de compra",
+    desc: "Emite liquidaciones de compra para proveedores que no emiten comprobantes.",
+    tag: "Compras",
+    tagColor: "bg-violet-100 text-violet-700",
+    border: "border-violet-100",
+    accent: "from-violet-400 to-violet-300",
+    iconBg: "bg-violet-100",
+  },
+  {
+    icon: "🔁",
+    title: "Facturas de reembolso",
+    desc: "Registra gastos realizados por cuenta de terceros con respaldo electrónico.",
+    tag: "Reembolsos",
+    tagColor: "bg-indigo-100 text-indigo-700",
+    border: "border-indigo-100",
+    accent: "from-indigo-400 to-indigo-300",
+    iconBg: "bg-indigo-100",
+  },
+];
+---
+
+<section class="relative bg-white py-20 overflow-hidden">
+
+  <!-- Decorative blobs -->
+  <div class="pointer-events-none absolute -top-24 -right-24 w-96 h-96 bg-sky-100 opacity-60 rounded-full blur-3xl"></div>
+  <div class="pointer-events-none absolute -bottom-24 -left-24 w-96 h-96 bg-cyan-100 opacity-60 rounded-full blur-3xl"></div>
+
+  <div class="container mx-auto px-6 relative z-10">
+
+    <!-- Header -->
+    <div class="text-center mb-14">
+      <span class="reveal reveal-up inline-flex items-center gap-2 bg-sky-100 text-sky-700 text-xs font-semibold px-4 py-1.5 rounded-full mb-4 uppercase tracking-wide">
+        <svg class="w-3.5 h-3.5" fill="currentColor" viewBox="0 0 20 20"><path d="M9 2a1 1 0 000 2h2a1 1 0 100-2H9z"/><path fill-rule="evenodd" d="M4 5a2 2 0 012-2 3 3 0 003 3h2a3 3 0 003-3 2 2 0 012 2v11a2 2 0 01-2 2H6a2 2 0 01-2-2V5zm3 4a1 1 0 000 2h.01a1 1 0 100-2H7zm3 0a1 1 0 000 2h3a1 1 0 100-2h-3zm-3 4a1 1 0 100 2h.01a1 1 0 100-2H7zm3 0a1 1 0 100 2h3a1 1 0 100-2h-3z" clip-rule="evenodd"/></svg>
+        Comprobantes electrónicos
+      </span>
+      <h2 class="reveal reveal-up reveal-delay-1 text-4xl lg:text-5xl font-extrabold text-sky-900 mb-4">
+        Todo lo que necesitas<br/>
+        <span class="text-transparent bg-clip-text bg-gradient-to-r from-sky-500 to-cyan-500">en un solo lugar</span>
+      </h2>
+      <p class="reveal reveal-up reveal-delay-2 text-sky-700 text-lg max-w-2xl mx-auto">
+        FACEC soporta todos los tipos de comprobantes autorizados por el SRI. Sin limitaciones, sin módulos extra.
+      </p>
+    </div>
+
+    <!-- Comprobantes grid -->
+    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 mb-12">
+      {comprobantes.map((c, i) => (
+        <div class={`reveal reveal-up reveal-delay-${(i % 3) + 1} group bg-white rounded-3xl border ${c.border} shadow-md card-hover overflow-hidden relative flex flex-col`}>
+          <div class={`h-1.5 bg-gradient-to-r ${c.accent} flex-shrink-0`}></div>
+          <div class="p-6 flex flex-col flex-1">
+            <div class={`w-14 h-14 ${c.iconBg} rounded-2xl flex items-center justify-center text-2xl mb-4 group-hover:scale-110 transition-transform duration-300 shadow-sm`}>
+              {c.icon}
+            </div>
+            <span class={`inline-block self-start text-xs font-semibold px-2.5 py-1 rounded-full mb-3 ${c.tagColor}`}>
+              {c.tag}
+            </span>
+            <h3 class="text-sky-900 font-bold text-lg mb-2 leading-snug">{c.title}</h3>
+            <p class="text-gray-500 text-sm leading-relaxed flex-1">{c.desc}</p>
+          </div>
+        </div>
+      ))}
+    </div>
+
+    <!-- Highlights: emisión en bloque + impresora térmica -->
+    <div class="flex flex-col gap-5 mb-0">
+
+    <!-- Emisión en bloque -->
+    <div class="reveal reveal-up reveal-delay-3 bg-gradient-to-r from-indigo-600 to-violet-500 rounded-3xl p-8 flex flex-col md:flex-row items-center gap-6 shadow-xl shadow-indigo-200 text-white">
+      <div class="w-16 h-16 bg-white/20 rounded-2xl flex items-center justify-center text-3xl flex-shrink-0">
+        ⚡
+      </div>
+      <div class="text-center md:text-left flex-1">
+        <h3 class="text-xl font-extrabold mb-1">Emisión de comprobantes en bloque</h3>
+        <p class="text-indigo-100 text-sm leading-relaxed">
+          Emite cientos de comprobantes electrónicos de forma simultánea con un solo clic. Ahorra tiempo y elimina la emisión manual uno por uno.
+        </p>
+      </div>
+      <div class="flex-shrink-0">
+        <span class="inline-block bg-white/20 border border-white/30 text-white text-sm font-semibold px-5 py-2 rounded-full">
+          ✅ Incluido en todos los planes
+        </span>
+      </div>
+    </div>
+
+    <!-- Impresora térmica highlight -->
+    <div class="reveal reveal-up reveal-delay-4 bg-gradient-to-r from-sky-600 to-cyan-500 rounded-3xl p-8 flex flex-col md:flex-row items-center gap-6 shadow-xl shadow-sky-200 text-white">
+      <div class="w-16 h-16 bg-white/20 rounded-2xl flex items-center justify-center text-3xl flex-shrink-0">
+        🖨️
+      </div>
+      <div class="text-center md:text-left flex-1">
+        <h3 class="text-xl font-extrabold mb-1">Compatible con impresoras térmicas</h3>
+        <p class="text-sky-100 text-sm leading-relaxed">
+          Imprime tus comprobantes en formato térmico (58mm y 80mm) directamente desde FACEC. Ideal para negocios con punto de venta físico.
+        </p>
+      </div>
+      <div class="flex-shrink-0">
+        <span class="inline-block bg-white/20 border border-white/30 text-white text-sm font-semibold px-5 py-2 rounded-full">
+          ✅ Incluido en todos los planes
+        </span>
+      </div>
+    </div>
+
+    </div><!-- end highlights -->
+
+  </div>
+</section>

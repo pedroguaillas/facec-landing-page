@@ -1,51 +1,151 @@
 ---
-import { Image } from "astro:assets";
-import appInTable from "../assets/appInTable.png";
+const features = [
+  {
+    icon: "✅",
+    title: "Adaptable a cualquier negocio",
+    desc: "Configura FACEC según el giro de tu negocio, sin importar el sector.",
+    iconBg: "bg-sky-100",
+    border: "border-sky-100",
+    accent: "from-sky-400 to-sky-300",
+    tag: "Flexibilidad",
+    tagColor: "bg-sky-50 text-sky-600",
+  },
+  {
+    icon: "📧",
+    title: "Envío automático por correo",
+    desc: "Tus clientes reciben sus comprobantes al instante en su bandeja de entrada.",
+    iconBg: "bg-cyan-100",
+    border: "border-cyan-100",
+    accent: "from-cyan-400 to-cyan-300",
+    tag: "Automatización",
+    tagColor: "bg-cyan-50 text-cyan-600",
+  },
+  {
+    icon: "🏢",
+    title: "Multi-establecimientos",
+    desc: "Gestiona múltiples sucursales y puntos de emisión desde un solo panel.",
+    iconBg: "bg-indigo-100",
+    border: "border-indigo-100",
+    accent: "from-indigo-400 to-indigo-300",
+    tag: "Multiempresa",
+    tagColor: "bg-indigo-50 text-indigo-600",
+  },
+  {
+    icon: "🧠",
+    title: "Interfaz intuitiva",
+    desc: "Diseño fácil de usar para que factures sin necesidad de capacitación.",
+    iconBg: "bg-violet-100",
+    border: "border-violet-100",
+    accent: "from-violet-400 to-violet-300",
+    tag: "Fácil de usar",
+    tagColor: "bg-violet-50 text-violet-600",
+  },
+  {
+    icon: "🔄",
+    title: "Actualizaciones automáticas",
+    desc: "Siempre tendrás la versión más reciente, sin costo adicional.",
+    iconBg: "bg-emerald-100",
+    border: "border-emerald-100",
+    accent: "from-emerald-400 to-emerald-300",
+    tag: "Gratuitas",
+    tagColor: "bg-emerald-50 text-emerald-600",
+  },
+  {
+    icon: "📈",
+    title: "Escalable contigo",
+    desc: "Crece sin límites: cambia de plan cuando tu negocio lo requiera.",
+    iconBg: "bg-amber-100",
+    border: "border-amber-100",
+    accent: "from-amber-400 to-amber-300",
+    tag: "Sin límites",
+    tagColor: "bg-amber-50 text-amber-600",
+  },
+  {
+    icon: "📊",
+    title: "Reportes en Excel y PDF",
+    desc: "Exporta tus comprobantes y resúmenes en los formatos que necesitas.",
+    iconBg: "bg-rose-100",
+    border: "border-rose-100",
+    accent: "from-rose-400 to-rose-300",
+    tag: "Exportación",
+    tagColor: "bg-rose-50 text-rose-600",
+  },
+  {
+    icon: "📱",
+    title: "Compatible con todo dispositivo",
+    desc: "Accede desde tu computadora, tablet o celular sin instalar nada.",
+    iconBg: "bg-teal-100",
+    border: "border-teal-100",
+    accent: "from-teal-400 to-teal-300",
+    tag: "Multiplataforma",
+    tagColor: "bg-teal-50 text-teal-600",
+  },
+];
 ---
 
-<div id="caracteristicas" class="container mx-auto flex flex-col-reverse md:flex-row items-center gap-10 py-16 px-6">
-  <!-- Columna de texto -->
-  <div class="w-full md:w-1/2">
-    <h2 class="reveal reveal-left text-3xl md:text-4xl font-extrabold text-sky-800 mb-4 text-center md:text-left">
-      Caracteristicas que hacen unica a FACEC
-    </h2>
-    <p class="reveal reveal-left reveal-delay-1 text-sky-700 text-lg md:text-xl mb-6 text-center md:text-left">
-      FACEC es una aplicacion 100% en la nube. Solo necesitas conexion a Internet para acceder desde cualquier lugar y dispositivo.
-    </p>
+<section id="caracteristicas" class="relative bg-gradient-to-br from-white via-sky-50 to-cyan-50 py-20 overflow-hidden">
 
-    <ul class="space-y-3 text-sky-700 text-base md:text-lg">
-      <li class="reveal reveal-left reveal-delay-1 flex items-start">
-        <span class="text-sky-600 mr-2">✅</span> Adaptable a cualquier negocio
-      </li>
-      <li class="reveal reveal-left reveal-delay-2 flex items-start">
-        <span class="text-sky-600 mr-2">📧</span> Envio automatico de comprobantes por correo
-      </li>
-      <li class="reveal reveal-left reveal-delay-2 flex items-start">
-        <span class="text-sky-600 mr-2">🏢</span> Multi-establecimientos y multiples puntos de emision
-      </li>
-      <li class="reveal reveal-left reveal-delay-3 flex items-start">
-        <span class="text-sky-600 mr-2">🧠</span> Interfaz intuitiva y facil de usar
-      </li>
-      <li class="reveal reveal-left reveal-delay-3 flex items-start">
-        <span class="text-sky-600 mr-2">∞</span> Sin limite de comprobantes electronicos
-      </li>
-      <li class="reveal reveal-left reveal-delay-4 flex items-start">
-        <span class="text-sky-600 mr-2">🔄</span> Actualizaciones automaticas y gratuitas
-      </li>
-      <li class="reveal reveal-left reveal-delay-4 flex items-start">
-        <span class="text-sky-600 mr-2">📈</span> Aplicacion escalable para crecer contigo
-      </li>
-      <li class="reveal reveal-left reveal-delay-5 flex items-start">
-        <span class="text-sky-600 mr-2">📊</span> Reportes en Excel y PDF
-      </li>
-      <li class="reveal reveal-left reveal-delay-5 flex items-start">
-        <span class="text-sky-600 mr-2">📱</span> Compatible con cualquier dispositivo
-      </li>
-    </ul>
-  </div>
+  <!-- Decorative blobs -->
+  <div class="pointer-events-none absolute -top-20 -left-20 w-80 h-80 bg-sky-200 opacity-20 rounded-full blur-3xl"></div>
+  <div class="pointer-events-none absolute -bottom-20 -right-20 w-80 h-80 bg-cyan-200 opacity-20 rounded-full blur-3xl"></div>
 
-  <!-- Columna de imagen -->
-  <div class="reveal reveal-right w-full md:w-1/2 flex justify-center">
-    <Image src={appInTable} class="rounded-lg shadow-lg max-w-full h-auto" alt="Aplicacion FACEC en una tablet" />
+  <div class="container mx-auto px-6 relative z-10">
+
+    <!-- Header -->
+    <div class="text-center mb-14">
+      <span class="reveal reveal-up inline-flex items-center gap-2 bg-sky-100 text-sky-700 text-xs font-semibold px-4 py-1.5 rounded-full mb-4 uppercase tracking-wide">
+        <svg class="w-3.5 h-3.5" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M11.3 1.046A1 1 0 0112 2v5h4a1 1 0 01.82 1.573l-7 10A1 1 0 018 18v-5H4a1 1 0 01-.82-1.573l7-10a1 1 0 011.12-.38z" clip-rule="evenodd"/></svg>
+        Funcionalidades
+      </span>
+      <h2 class="reveal reveal-up reveal-delay-1 text-4xl lg:text-5xl font-extrabold text-sky-900 mb-4">
+        Características que hacen<br/>
+        <span class="text-transparent bg-clip-text bg-gradient-to-r from-sky-500 to-cyan-500">única a FACEC</span>
+      </h2>
+      <p class="reveal reveal-up reveal-delay-2 text-sky-700 text-lg max-w-xl mx-auto">
+        Una aplicación <span class="font-semibold">100% en la nube</span>. Solo necesitas conexión a Internet para acceder desde cualquier lugar y dispositivo.
+      </p>
+    </div>
+
+    <!-- Features grid -->
+    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5">
+      {features.map((f, i) => (
+        <div class={`reveal reveal-up reveal-delay-${(i % 4) + 1} group bg-white rounded-3xl border ${f.border} shadow-md card-hover overflow-hidden relative flex flex-col`}>
+          <!-- Top accent line -->
+          <div class={`h-1.5 bg-gradient-to-r ${f.accent} flex-shrink-0`}></div>
+
+          <div class="p-6 flex flex-col flex-1">
+            <!-- Icon -->
+            <div class={`w-13 h-13 w-14 h-14 ${f.iconBg} rounded-2xl flex items-center justify-center text-2xl mb-4 group-hover:scale-110 transition-transform duration-300 shadow-sm`}>
+              {f.icon}
+            </div>
+
+            <!-- Tag -->
+            <span class={`inline-block self-start text-xs font-semibold px-2.5 py-1 rounded-full mb-3 ${f.tagColor}`}>
+              {f.tag}
+            </span>
+
+            <h3 class="text-sky-900 font-bold text-base mb-2 leading-snug">{f.title}</h3>
+            <p class="text-gray-500 text-sm leading-relaxed flex-1">{f.desc}</p>
+          </div>
+        </div>
+      ))}
+    </div>
+
+    <!-- Bottom CTA -->
+    <div class="reveal reveal-up reveal-delay-4 mt-14 bg-gradient-to-r from-sky-600 to-cyan-500 rounded-3xl p-8 md:p-10 flex flex-col md:flex-row items-center justify-between gap-6 text-white shadow-xl shadow-sky-200">
+      <div>
+        <h3 class="text-2xl font-extrabold mb-1">¿Listo para empezar?</h3>
+        <p class="text-sky-100 text-sm">Únete a cientos de negocios que ya facturan con FACEC.</p>
+      </div>
+      <a
+        href="https://app.facec.ec/login"
+        target="_blank"
+        class="flex-shrink-0 inline-flex items-center gap-2 bg-white text-sky-700 font-bold px-8 py-3 rounded-full shadow-md hover:bg-sky-50 btn-hover transition-all"
+      >
+        <svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M13 10V3L4 14h7v7l9-11h-7z"/></svg>
+        Iniciar sesión
+      </a>
+    </div>
+
   </div>
-</div>
+</section>

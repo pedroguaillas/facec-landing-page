@@ -1,40 +1,97 @@
 ---
 const stats = [
-  { icon: "👥", label: "Clientes activos", value: 1204 },
-  { icon: "🧾", label: "Facturas emitidas", value: 350918 },
-  { icon: "📦", label: "En la nube y facil de usar", value: 100 },
+  {
+    icon: "👥",
+    label: "Clientes activos",
+    value: 1204,
+    suffix: "+",
+    accent: "from-sky-500 to-cyan-400",
+    iconBg: "bg-sky-100",
+    textColor: "text-sky-600",
+  },
+  {
+    icon: "🧾",
+    label: "Facturas emitidas",
+    value: 350918,
+    suffix: "+",
+    accent: "from-cyan-500 to-teal-400",
+    iconBg: "bg-cyan-100",
+    textColor: "text-cyan-600",
+  },
+  {
+    icon: "☁️",
+    label: "En la nube y fácil de usar",
+    value: 100,
+    suffix: "%",
+    accent: "from-indigo-500 to-sky-400",
+    iconBg: "bg-indigo-100",
+    textColor: "text-indigo-600",
+  },
 ];
 ---
 
-<section class="py-16 text-center bg-sky-50">
-  <h2 class="reveal reveal-up text-4xl font-bold text-sky-900 mb-10">
-    Nuestras cifras hablan por si solas
-  </h2>
+<section class="relative py-20 overflow-hidden bg-gradient-to-br from-sky-900 via-sky-800 to-cyan-900">
 
-  <div
-    class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-8 max-w-5xl mx-auto px-4"
-  >
-    {
-      stats.map((item, index) => (
-        <div class={`reveal reveal-scale reveal-delay-${index + 1} bg-white p-6 rounded-2xl shadow-lg card-hover`}>
-          <div class="flex justify-center">
-            <div class="text-6xl p-4 rounded-full bg-sky-900/20">{item.icon}</div>
+  <!-- Decorative blobs -->
+  <div class="pointer-events-none absolute -top-20 -left-20 w-80 h-80 bg-cyan-500 opacity-10 rounded-full blur-3xl"></div>
+  <div class="pointer-events-none absolute -bottom-20 -right-20 w-80 h-80 bg-sky-400 opacity-10 rounded-full blur-3xl"></div>
+
+  <!-- Dot grid pattern -->
+  <div class="pointer-events-none absolute inset-0 opacity-5"
+    style="background-image: radial-gradient(circle, white 1px, transparent 1px); background-size: 28px 28px;">
+  </div>
+
+  <div class="container mx-auto px-6 relative z-10">
+
+    <!-- Header -->
+    <div class="text-center mb-14">
+      <span class="reveal reveal-up inline-flex items-center gap-2 bg-white/10 text-sky-200 text-xs font-semibold px-4 py-1.5 rounded-full mb-4 uppercase tracking-wide border border-white/10">
+        <svg class="w-3.5 h-3.5" fill="currentColor" viewBox="0 0 20 20"><path d="M2 11a1 1 0 011-1h2a1 1 0 011 1v5a1 1 0 01-1 1H3a1 1 0 01-1-1v-5zm6-4a1 1 0 011-1h2a1 1 0 011 1v9a1 1 0 01-1 1H9a1 1 0 01-1-1V7zm6-3a1 1 0 011-1h2a1 1 0 011 1v12a1 1 0 01-1 1h-2a1 1 0 01-1-1V4z"/></svg>
+        Números reales
+      </span>
+      <h2 class="reveal reveal-up reveal-delay-1 text-4xl lg:text-5xl font-extrabold text-white mb-3">
+        Nuestras cifras hablan<br/>
+        <span class="text-transparent bg-clip-text bg-gradient-to-r from-sky-300 to-cyan-300">
+          por sí solas
+        </span>
+      </h2>
+      <p class="reveal reveal-up reveal-delay-2 text-sky-300 text-lg max-w-md mx-auto">
+        Miles de negocios en Ecuador confían en FACEC cada día.
+      </p>
+    </div>
+
+    <!-- Stats grid -->
+    <div class="grid grid-cols-1 sm:grid-cols-3 gap-6 max-w-4xl mx-auto">
+      {stats.map((item, index) => (
+        <div class={`reveal reveal-scale reveal-delay-${index + 1} group relative bg-white/10 backdrop-blur-sm border border-white/10 rounded-3xl p-8 text-center card-hover overflow-hidden`}>
+
+          <!-- Gradient top line -->
+          <div class={`absolute top-0 left-0 right-0 h-1 bg-gradient-to-r ${item.accent}`}></div>
+
+          <!-- Icon -->
+          <div class="w-16 h-16 bg-white/15 rounded-2xl flex items-center justify-center text-3xl mx-auto mb-5 group-hover:scale-110 transition-transform duration-300">
+            {item.icon}
           </div>
-          <div
-            class="text-3xl font-bold text-sky-900 mt-2 counter"
-            data-target={item.value}
-          >
-            0
+
+          <!-- Counter -->
+          <div class="flex items-end justify-center gap-1 mb-2">
+            <span
+              class="text-5xl font-extrabold text-white counter"
+              data-target={item.value}
+            >0</span>
+            <span class="text-3xl font-extrabold text-sky-300 mb-1">{item.suffix}</span>
           </div>
-          <div class="text-sky-800 mt-1">{item.label}</div>
+
+          <!-- Label -->
+          <p class="text-sky-200 text-sm font-medium">{item.label}</p>
         </div>
-      ))
-    }
+      ))}
+    </div>
+
   </div>
 </section>
 
 <script is:inline>
-  // Counter starts only when section scrolls into view
   const statsSection = document.querySelector(".counter")?.closest("section");
   if (statsSection) {
     let started = false;

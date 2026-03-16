@@ -1,132 +1,135 @@
-<div class="flex flex-row items-center justify-between mx-auto container h-16 relative">
+<header class="sticky top-0 z-50 w-full bg-white/80 backdrop-blur-md border-b border-sky-100 shadow-sm">
+  <div class="container mx-auto px-4 sm:px-6 h-16 flex items-center justify-between">
+
     <!-- Logo -->
-    <a href="/">
-        <div
-            class="bg-gradient-to-r from-sky-400 to-sky-900 bg-clip-text text-transparent font-semibold text-4xl text-center"
-        >
-            facec
-        </div>
+    <a href="/" class="flex items-center gap-2 group">
+      <div class="w-8 h-8 bg-gradient-to-br from-sky-400 to-sky-700 rounded-lg flex items-center justify-center shadow-sm group-hover:shadow-sky-300 transition-shadow">
+        <span class="text-white font-extrabold text-sm">F</span>
+      </div>
+      <span class="bg-gradient-to-r from-sky-500 to-sky-900 bg-clip-text text-transparent font-extrabold text-2xl tracking-tight">
+        facec
+      </span>
     </a>
-    <!-- Boton de menu movil -->
-    <button id="menu-toggle" class="sm:hidden p-2 rounded mr-4 bg-sky-700 text-white font-bold" aria-label="Abrir menu">
-        <svg
-            xmlns="http://www.w3.org/2000/svg"
-            fill="none"
-            viewBox="0 0 24 24"
-            stroke-width="1.5"
-            stroke="currentColor"
-            class="size-6"
-        >
-            <path stroke-linecap="round" stroke-linejoin="round" d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5"
-            ></path>
+
+    <!-- Nav desktop -->
+    <nav class="hidden sm:flex items-center gap-1">
+      <a href="#precios" class="px-3 py-2 rounded-lg text-sm text-sky-700 font-medium hover:bg-sky-50 hover:text-sky-900 transition-colors">Precios</a>
+      <a href="#caracteristicas" class="px-3 py-2 rounded-lg text-sm text-sky-700 font-medium hover:bg-sky-50 hover:text-sky-900 transition-colors">Características</a>
+      <a href="/firma-electronica" class="px-3 py-2 rounded-lg text-sm font-semibold text-violet-600 hover:bg-violet-50 hover:text-violet-800 transition-colors inline-flex items-center gap-1.5">
+        Firmas
+        <span class="bg-gradient-to-r from-violet-500 to-rose-500 text-white text-[10px] font-bold px-2 py-0.5 rounded-full leading-none animate-pulse">
+          15% OFF
+        </span>
+      </a>
+      <a href="#faq" class="px-3 py-2 rounded-lg text-sm text-sky-700 font-medium hover:bg-sky-50 hover:text-sky-900 transition-colors">FAQ</a>
+      <a href="#contactame" class="px-3 py-2 rounded-lg text-sm text-sky-700 font-medium hover:bg-sky-50 hover:text-sky-900 transition-colors">Contáctanos</a>
+    </nav>
+
+    <!-- CTA desktop + mobile toggle -->
+    <div class="flex items-center gap-3">
+      <a
+        href="https://app.facec.ec"
+        target="_blank"
+        aria-label="Ir al inicio de sesión de la aplicación FACEC"
+        class="hidden sm:inline-flex items-center gap-2 bg-sky-600 hover:bg-sky-700 text-white text-sm font-semibold px-5 py-2 rounded-full shadow-md shadow-sky-200 btn-hover transition-all"
+      >
+        <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M13 10V3L4 14h7v7l9-11h-7z"/></svg>
+        Iniciar sesión
+      </a>
+
+      <!-- Mobile menu button -->
+      <button id="menu-toggle" class="sm:hidden p-2 rounded-lg bg-sky-600 text-white" aria-label="Abrir menu">
+        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" class="w-5 h-5">
+          <path stroke-linecap="round" stroke-linejoin="round" d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5"/>
         </svg>
-    </button>
-
-    <!-- Menu para pantallas grandes -->
-    <ul class="hidden sm:flex flex-row items-center space-x-6 text-sky-700 mr-4">
-        <li class="hover:text-sky-900"><a href="#precios">Precios</a></li>
-        <li class="hover:text-sky-900">
-            <a href="#caracteristicas">Caracteristicas</a>
-        </li>
-        <li class="hover:text-sky-900">
-            <a href="/firma-electronica" class="inline-flex items-center gap-1.5 text-violet-600 font-semibold hover:text-violet-800">
-                Firmas
-                <span class="bg-gradient-to-r from-violet-500 to-rose-500 text-white text-[10px] font-bold px-2 py-0.5 rounded-full leading-none animate-pulse">
-                    15% OFF
-                </span>
-            </a>
-        </li>
-        <li class="hover:text-sky-900"><a href="#faq">FAQ</a></li>
-        <li class="hover:text-sky-900">
-            <a href="#contactame">Contactanos</a>
-        </li>
-        <li>
-            <a
-                href="https://app.facec.ec"
-                target="_blank"
-                aria-label="Ir al inicio de sesion de la aplicacion FACEC"
-                class="bg-gradient-to-r from-sky-300 to-sky-900 bg-clip-text text-transparent font-semibold"
-            >
-                Iniciar
-            </a>
-        </li>
-    </ul>
-
-    <!-- Fondo semi-transparente detras del menu movil -->
-    <div id="menu-overlay" class="fixed inset-0 bg-sky-300/50 hidden transition-opacity duration-300 z-10"></div>
-
-    <!-- Sidebar para moviles -->
-    <div
-        id="mobile-menu"
-        class="fixed top-0 right-0 h-full w-64 bg-sky-50 shadow-lg transform translate-x-full transition-transform duration-300 sm:hidden flex flex-col items-center pt-10 z-20"
-    >
-        <!-- Boton de Cerrar -->
-        <button
-            id="close-menu"
-            class="absolute top-4 right-4 px-3 py-2 bg-white border border-sky-700 text-sky-700 rounded-full transition duration-300 hover:bg-sky-100"
-        >
-            ✖
-        </button>
-
-        <!-- Menu movil -->
-        <ul class="text-sky-700 w-full text-center">
-            <li class="hover:bg-sky-200 p-4"><a href="#precios">Precios</a></li>
-            <li class="hover:bg-sky-200 p-4">
-                <a href="#caracteristicas">Caracteristicas</a>
-            </li>
-            <li class="hover:bg-sky-200 p-4">
-                <a href="/firma-electronica" class="inline-flex items-center gap-2 font-semibold text-violet-600">
-                    Firmas
-                    <span class="bg-gradient-to-r from-violet-500 to-rose-500 text-white text-[10px] font-bold px-2 py-0.5 rounded-full leading-none animate-pulse">
-                        15% OFF
-                    </span>
-                </a>
-            </li>
-            <li class="hover:bg-sky-200 p-4">
-                <a href="/carnaval" class="inline-flex items-center gap-2 font-semibold text-amber-600">
-                    Carnaval
-                    <span
-                        class="bg-gradient-to-r from-amber-400 to-amber-500 text-white text-[10px] font-bold px-2 py-0.5 rounded-full leading-none"
-                    >
-                        PROMO
-                    </span>
-                </a>
-            </li>
-            <li class="hover:bg-sky-200 p-4"><a href="#faq">FAQ</a></li>
-            <li class="hover:bg-sky-200 p-4">
-                <a href="#contactame">Contactanos</a>
-            </li>
-            <li class="p-4">
-                <a
-                    href="https://app.facec.ec"
-                    target="_blank"
-                    class="bg-gradient-to-r from-sky-300 to-sky-900 bg-clip-text text-transparent font-semibold"
-                >
-                    Ingresar
-                </a>
-            </li>
-        </ul>
+      </button>
     </div>
+  </div>
+</header>
+
+<!-- Overlay -->
+<div id="menu-overlay" class="fixed inset-0 bg-black/30 backdrop-blur-sm hidden z-40 transition-opacity duration-300"></div>
+
+<!-- Mobile sidebar -->
+<div
+  id="mobile-menu"
+  class="fixed top-0 right-0 h-full w-72 bg-white shadow-2xl transform translate-x-full transition-transform duration-300 sm:hidden flex flex-col z-50"
+>
+  <!-- Sidebar header -->
+  <div class="flex items-center justify-between px-6 py-5 border-b border-sky-100">
+    <div class="flex items-center gap-2">
+      <div class="w-7 h-7 bg-gradient-to-br from-sky-400 to-sky-700 rounded-lg flex items-center justify-center">
+        <span class="text-white font-extrabold text-xs">F</span>
+      </div>
+      <span class="bg-gradient-to-r from-sky-500 to-sky-900 bg-clip-text text-transparent font-extrabold text-xl">facec</span>
+    </div>
+    <button id="close-menu" class="p-2 rounded-lg text-sky-600 hover:bg-sky-50 transition-colors" aria-label="Cerrar menu">
+      <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" class="w-5 h-5">
+        <path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12"/>
+      </svg>
+    </button>
+  </div>
+
+  <!-- Sidebar nav -->
+  <nav class="flex flex-col px-4 py-4 gap-1 flex-1">
+    <a href="#precios" class="flex items-center gap-3 px-4 py-3 rounded-xl text-sky-700 font-medium hover:bg-sky-50 hover:text-sky-900 transition-colors">
+      <span class="text-base">💰</span> Precios
+    </a>
+    <a href="#caracteristicas" class="flex items-center gap-3 px-4 py-3 rounded-xl text-sky-700 font-medium hover:bg-sky-50 hover:text-sky-900 transition-colors">
+      <span class="text-base">⚡</span> Características
+    </a>
+    <a href="/firma-electronica" class="flex items-center gap-3 px-4 py-3 rounded-xl text-violet-600 font-semibold hover:bg-violet-50 transition-colors">
+      <span class="text-base">✍️</span>
+      Firmas
+      <span class="ml-auto bg-gradient-to-r from-violet-500 to-rose-500 text-white text-[10px] font-bold px-2 py-0.5 rounded-full animate-pulse">
+        15% OFF
+      </span>
+    </a>
+    <a href="#faq" class="flex items-center gap-3 px-4 py-3 rounded-xl text-sky-700 font-medium hover:bg-sky-50 hover:text-sky-900 transition-colors">
+      <span class="text-base">❓</span> FAQ
+    </a>
+    <a href="#contactame" class="flex items-center gap-3 px-4 py-3 rounded-xl text-sky-700 font-medium hover:bg-sky-50 hover:text-sky-900 transition-colors">
+      <span class="text-base">💬</span> Contáctanos
+    </a>
+  </nav>
+
+  <!-- Sidebar CTA -->
+  <div class="px-4 pb-6">
+    <a
+      href="https://app.facec.ec"
+      target="_blank"
+      class="flex items-center justify-center gap-2 w-full bg-sky-600 hover:bg-sky-700 text-white font-semibold py-3 rounded-2xl shadow-md shadow-sky-200 transition-all"
+    >
+      <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M13 10V3L4 14h7v7l9-11h-7z"/></svg>
+      Iniciar sesión
+    </a>
+  </div>
 </div>
 
 <script>
-    const menuToggle = document.getElementById("menu-toggle");
-    const mobileMenu = document.getElementById("mobile-menu");
-    const closeMenu = document.getElementById("close-menu");
-    const menuOverlay = document.getElementById("menu-overlay");
+  const menuToggle = document.getElementById("menu-toggle");
+  const mobileMenu = document.getElementById("mobile-menu");
+  const closeMenu = document.getElementById("close-menu");
+  const menuOverlay = document.getElementById("menu-overlay");
 
-    menuToggle.addEventListener("click", () => {
-        mobileMenu.classList.remove("translate-x-full");
-        menuOverlay.classList.remove("hidden");
-    });
+  function openMenu() {
+    mobileMenu.classList.remove("translate-x-full");
+    menuOverlay.classList.remove("hidden");
+    document.body.style.overflow = "hidden";
+  }
 
-    closeMenu.addEventListener("click", () => {
-        mobileMenu.classList.add("translate-x-full");
-        menuOverlay.classList.add("hidden");
-    });
+  function closeMenuFn() {
+    mobileMenu.classList.add("translate-x-full");
+    menuOverlay.classList.add("hidden");
+    document.body.style.overflow = "";
+  }
 
-    menuOverlay.addEventListener("click", () => {
-        mobileMenu.classList.add("translate-x-full");
-        menuOverlay.classList.add("hidden");
-    });
+  menuToggle.addEventListener("click", openMenu);
+  closeMenu.addEventListener("click", closeMenuFn);
+  menuOverlay.addEventListener("click", closeMenuFn);
+
+  // Close on nav link click
+  mobileMenu.querySelectorAll("a").forEach(link => {
+    link.addEventListener("click", closeMenuFn);
+  });
 </script>

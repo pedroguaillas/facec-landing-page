@@ -3,18 +3,30 @@ const pricesMonths = [
     {
         price: 5,
         plan: "Plan básico",
-        caracteristics: ["Hasta 65 comprobantes"],
+        icon: "🌱",
+        caracteristics: ["Hasta 65 comprobantes", "Soporte por email", "Panel de administración"],
+        featured: false,
     },
     {
         price: 10,
         plan: "Plan medium",
-        caracteristics: ["Hasta 150 comprobantes"],
+        icon: "🚀",
+        caracteristics: ["Hasta 150 comprobantes", "Soporte prioritario", "Panel de administración", "Reportes"],
+        featured: true,
     },
-    { price: 15, plan: "Plan pro", caracteristics: ["Hasta 300 comprobantes"] },
+    {
+        price: 15,
+        plan: "Plan pro",
+        icon: "⭐",
+        caracteristics: ["Hasta 300 comprobantes", "Soporte 24/7", "Panel de administración", "Reportes"],
+        featured: false,
+    },
     {
         price: 20,
         plan: "Plan ilimitado",
-        caracteristics: ["Sin límite de comprobantes"],
+        icon: "♾️",
+        caracteristics: ["Sin límite de comprobantes", "Soporte dedicado", "Panel de administración", "Reportes", "API access"],
+        featured: false,
     },
 ];
 
@@ -22,82 +34,178 @@ const pricesYears = [
     {
         price: 20,
         plan: "Plan anual",
-        caracteristics: ["Hasta 200 comprobantes"],
+        icon: "📅",
+        badge: "Ahorra 30%",
+        caracteristics: ["Hasta 175 comprobantes", "Soporte prioritario", "Panel de administración", "Reportes"],
+        featured: false,
     },
     {
         price: 35,
-        plan: "Sistema mas firma",
-        caracteristics: ["Hasta 200 comprobantes"],
+        plan: "Sistema + Firma",
+        icon: "🔐",
+        badge: "Todo incluido",
+        caracteristics: ["Hasta 175 comprobantes", "Firma electrónica incluida", "Soporte 24/7", "Panel de administración", "Reportes"],
+        featured: true,
     },
 ];
 ---
 
-<section id="precios" class="bg-sky-50 flex flex-col text-center py-10 px-6">
-    <h1 class="reveal reveal-up text-sky-900 text-3xl font-semibold mb-4">
-        "Lo mejor al mejor precio, diseñado para ti."
-    </h1>
+<section id="precios" class="relative bg-gradient-to-br from-sky-50 via-white to-cyan-50 py-20 overflow-hidden">
 
-    <!-- Plan mensual -->
-    <h2 class="reveal reveal-up text-sky-900 text-4xl font-bold mb-6">Planes mensuales</h2>
+  <!-- Decorative blobs -->
+  <div class="pointer-events-none absolute -top-24 -right-24 w-96 h-96 bg-sky-200 opacity-25 rounded-full blur-3xl"></div>
+  <div class="pointer-events-none absolute -bottom-24 -left-24 w-96 h-96 bg-cyan-200 opacity-25 rounded-full blur-3xl"></div>
 
-    <!-- Container -->
-    <div
-        class="container mx-auto grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8"
-    >
-        {
-            pricesMonths.map((price, index) => (
-                <article class={`reveal reveal-up reveal-delay-${index + 1} rounded-2xl bg-white shadow-lg p-6 text-center card-hover`}>
-                    <div class="flex justify-center mb-4">
-                        <span class="rounded-full bg-sky-900 p-4 text-2xl text-white">
-                            ${price.price}
-                        </span>
-                    </div>
-                    <h2 class="font-bold text-sky-900 text-2xl">
-                        {price.plan}
-                    </h2>
-                    <ul class="mt-4 space-y-1 text-sky-800 text-left">
-                        {price.caracteristics.map((caracteristic) => (
-                            <li class="list-disc">{caracteristic}</li>
-                        ))}
-                    </ul>
-                    <button class="mt-6 rounded-full bg-sky-900 px-4 py-2 text-white btn-hover hover:bg-sky-900/70">
-                        Contratar
-                    </button>
-                </article>
-            ))
-        }
+  <div class="container mx-auto px-6 relative z-10">
+
+    <!-- Header -->
+    <div class="text-center mb-14">
+      <span class="reveal reveal-up inline-flex items-center gap-2 bg-sky-100 text-sky-700 text-xs font-semibold px-4 py-1.5 rounded-full mb-4 uppercase tracking-wide">
+        <svg class="w-3.5 h-3.5" fill="currentColor" viewBox="0 0 20 20"><path d="M8.433 7.418c.155-.103.346-.196.567-.267v1.698a2.305 2.305 0 01-.567-.267C8.07 8.34 8 8.114 8 8c0-.114.07-.34.433-.582zM11 12.849v-1.698c.22.071.412.164.567.267.364.243.433.468.433.582 0 .114-.07.34-.433.582a2.305 2.305 0 01-.567.267z"/><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm1-13a1 1 0 10-2 0v.092a4.535 4.535 0 00-1.676.662C6.602 6.234 6 7.009 6 8c0 .99.602 1.765 1.324 2.246.48.32 1.054.545 1.676.662v1.941c-.391-.127-.68-.317-.843-.504a1 1 0 10-1.51 1.31c.562.649 1.413 1.076 2.353 1.253V15a1 1 0 102 0v-.092a4.535 4.535 0 001.676-.662C13.398 13.766 14 12.991 14 12c0-.99-.602-1.765-1.324-2.246A4.535 4.535 0 0011 9.092V7.151c.391.127.68.317.843.504a1 1 0 101.511-1.31c-.563-.649-1.413-1.076-2.354-1.253V5z" clip-rule="evenodd"/></svg>
+        Planes y precios
+      </span>
+      <h2 class="reveal reveal-up reveal-delay-1 text-4xl lg:text-5xl font-extrabold text-sky-900 mb-4">
+        Lo mejor al <span class="text-transparent bg-clip-text bg-gradient-to-r from-sky-500 to-cyan-500">mejor precio</span>
+      </h2>
+      <p class="reveal reveal-up reveal-delay-2 text-sky-700 text-lg max-w-xl mx-auto">
+        Diseñado para ti. Elige el plan que se adapta a tu negocio y empieza a facturar hoy.
+      </p>
     </div>
 
-    <!-- Plan anual -->
-    <h2 class="reveal reveal-up text-sky-900 text-4xl font-bold my-6">Otros planes</h2>
-
-    <!-- Container -->
-    <div
-        class="container mx-auto grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8"
-    >
-        {
-            pricesYears.map((price, index) => (
-                <article
-                    class={`reveal reveal-up reveal-delay-${index + 1} rounded-2xl bg-white shadow-lg p-6 text-center card-hover ${index === 0 ? "lg:col-start-2" : ""}`}
-                >
-                    <div class="flex justify-center mb-4">
-                        <span class="rounded-full bg-sky-900 p-4 text-2xl text-white">
-                            ${price.price}
-                        </span>
-                    </div>
-                    <h2 class="font-bold text-sky-900 text-2xl">
-                        {price.plan}
-                    </h2>
-                    <ul class="mt-4 space-y-1 text-sky-800 text-left">
-                        {price.caracteristics.map((caracteristic) => (
-                            <li class="list-disc">{caracteristic}</li>
-                        ))}
-                    </ul>
-                    <button class="mt-6 rounded-full bg-sky-900 px-4 py-2 text-white btn-hover hover:bg-sky-900/70">
-                        Contratar
-                    </button>
-                </article>
-            ))
-        }
+    <!-- Planes mensuales -->
+    <div class="flex items-center gap-4 mb-8">
+      <div class="flex-1 h-px bg-sky-200"></div>
+      <h3 class="reveal reveal-up text-sky-900 text-xl font-bold whitespace-nowrap">Planes mensuales</h3>
+      <div class="flex-1 h-px bg-sky-200"></div>
     </div>
+
+    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 mb-16">
+      {pricesMonths.map((price, index) => (
+        <article class={`reveal reveal-up reveal-delay-${index + 1} relative rounded-3xl overflow-hidden flex flex-col
+          ${price.featured
+            ? "bg-gradient-to-b from-sky-600 to-sky-800 text-white shadow-2xl shadow-sky-300 scale-105"
+            : "bg-white border border-sky-100 shadow-lg text-sky-900"
+          } card-hover`}>
+
+          {price.featured && (
+            <div class="absolute top-4 right-4 bg-yellow-400 text-yellow-900 text-xs font-bold px-3 py-1 rounded-full">
+              ⭐ Popular
+            </div>
+          )}
+
+          <div class="p-7 flex flex-col flex-1">
+            <!-- Icon -->
+            <div class={`w-14 h-14 rounded-2xl flex items-center justify-center text-2xl mb-5 mx-auto
+              ${price.featured ? "bg-white/20" : "bg-sky-100"}`}>
+              {price.icon}
+            </div>
+
+            <!-- Plan name -->
+            <h4 class={`text-lg font-bold text-center mb-1 ${price.featured ? "text-white" : "text-sky-900"}`}>
+              {price.plan}
+            </h4>
+
+            <!-- Price -->
+            <div class="text-center my-5">
+              <span class={`text-5xl font-extrabold ${price.featured ? "text-white" : "text-sky-700"}`}>${price.price}</span>
+              <span class={`text-sm ml-1 ${price.featured ? "text-sky-200" : "text-sky-400"}`}>/mes</span>
+            </div>
+
+            <!-- Features -->
+            <ul class="space-y-2 mb-6 flex-1">
+              {price.caracteristics.map(c => (
+                <li class={`flex items-center gap-2 text-sm ${price.featured ? "text-sky-100" : "text-gray-600"}`}>
+                  <svg class={`w-4 h-4 flex-shrink-0 ${price.featured ? "text-sky-300" : "text-sky-500"}`} fill="currentColor" viewBox="0 0 20 20">
+                    <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/>
+                  </svg>
+                  {c}
+                </li>
+              ))}
+            </ul>
+
+            <!-- CTA -->
+            <a href="https://app.facec.ec" class={`block text-center rounded-full py-2.5 px-5 font-semibold text-sm transition-all btn-hover
+              ${price.featured
+                ? "bg-white text-sky-700 hover:bg-sky-50"
+                : "bg-sky-600 text-white hover:bg-sky-700"
+              }`}>
+              Contratar ahora
+            </a>
+          </div>
+        </article>
+      ))}
+    </div>
+
+    <!-- Otros planes -->
+    <div class="flex items-center gap-4 mb-8">
+      <div class="flex-1 h-px bg-sky-200"></div>
+      <h3 class="reveal reveal-up text-sky-900 text-xl font-bold whitespace-nowrap">Otros planes</h3>
+      <div class="flex-1 h-px bg-sky-200"></div>
+    </div>
+
+    <div class="grid grid-cols-1 sm:grid-cols-2 gap-6 max-w-2xl mx-auto">
+      {pricesYears.map((price, index) => (
+        <article class={`reveal reveal-up reveal-delay-${index + 1} relative rounded-3xl overflow-hidden flex flex-col
+          ${price.featured
+            ? "bg-gradient-to-b from-sky-600 to-sky-800 text-white shadow-2xl shadow-sky-300"
+            : "bg-white border border-sky-100 shadow-lg text-sky-900"
+          } card-hover`}>
+
+          {price.badge && (
+            <div class={`absolute top-4 right-4 text-xs font-bold px-3 py-1 rounded-full
+              ${price.featured ? "bg-yellow-400 text-yellow-900" : "bg-emerald-100 text-emerald-700"}`}>
+              {price.badge}
+            </div>
+          )}
+
+          <div class="p-7 flex flex-col flex-1">
+            <div class={`w-14 h-14 rounded-2xl flex items-center justify-center text-2xl mb-5 mx-auto
+              ${price.featured ? "bg-white/20" : "bg-sky-100"}`}>
+              {price.icon}
+            </div>
+
+            <h4 class={`text-lg font-bold text-center mb-1 ${price.featured ? "text-white" : "text-sky-900"}`}>
+              {price.plan}
+            </h4>
+
+            <div class="text-center my-5">
+              <span class={`text-5xl font-extrabold ${price.featured ? "text-white" : "text-sky-700"}`}>${price.price}</span>
+              <span class={`text-sm ml-1 ${price.featured ? "text-sky-200" : "text-sky-400"}`}>/año</span>
+            </div>
+
+            <ul class="space-y-2 mb-6 flex-1">
+              {price.caracteristics.map(c => (
+                <li class={`flex items-center gap-2 text-sm ${price.featured ? "text-sky-100" : "text-gray-600"}`}>
+                  <svg class={`w-4 h-4 flex-shrink-0 ${price.featured ? "text-sky-300" : "text-sky-500"}`} fill="currentColor" viewBox="0 0 20 20">
+                    <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/>
+                  </svg>
+                  {c}
+                </li>
+              ))}
+            </ul>
+
+            <a href="https://app.facec.ec" class={`block text-center rounded-full py-2.5 px-5 font-semibold text-sm transition-all btn-hover
+              ${price.featured
+                ? "bg-white text-sky-700 hover:bg-sky-50"
+                : "bg-sky-600 text-white hover:bg-sky-700"
+              }`}>
+              Contratar ahora
+            </a>
+          </div>
+        </article>
+      ))}
+    </div>
+
+    <!-- Bottom note -->
+    <div class="reveal reveal-up reveal-delay-4 mt-12 text-center">
+      <p class="text-sky-600 text-sm">
+        ¿Tienes dudas sobre qué plan elegir?
+        <a href="https://wa.me/593000000000" class="font-semibold underline underline-offset-2 hover:text-sky-800 transition-colors">
+          Contáctanos por WhatsApp
+        </a>
+        y te ayudamos.
+      </p>
+    </div>
+
+  </div>
 </section>
