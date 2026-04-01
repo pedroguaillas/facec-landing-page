@@ -57,6 +57,18 @@
           </a>
         </div>
 
+        <!-- Email -->
+        <div class="w-full sm:w-auto relative rounded-full cursor-pointer transition-all duration-300 hover:scale-105 hover:-translate-y-1 p-px overflow-hidden shadow-lg shadow-amber-300/50">
+          <div class="absolute inset-[-4px] rounded-full animate-border-rotate-amber bg-[conic-gradient(from_var(--border-angle-amber),#f59e0b_0%,#fbbf24_50%,#d97706_100%)]"></div>
+          <a
+            href="mailto:info@facec.ec"
+            class="relative flex items-center justify-center gap-2 bg-amber-700 hover:bg-amber-600 rounded-full px-8 py-3.5 text-white font-bold text-base z-10 transition-colors"
+          >
+            <svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M21.75 6.75v10.5a2.25 2.25 0 01-2.25 2.25h-15a2.25 2.25 0 01-2.25-2.25V6.75m19.5 0A2.25 2.25 0 0019.5 4.5h-15a2.25 2.25 0 00-2.25 2.25m19.5 0v.243a2.25 2.25 0 01-1.07 1.916l-7.5 4.615a2.25 2.25 0 01-2.36 0L3.32 8.91a2.25 2.25 0 01-1.07-1.916V6.75"/></svg>
+            Email
+          </a>
+        </div>
+
       </div>
 
       <!-- Card footer -->
@@ -82,12 +94,22 @@
     initial-value: 0deg;
   }
 
+  @property --border-angle-amber {
+    syntax: "<angle>";
+    inherits: false;
+    initial-value: 0deg;
+  }
+
   .animate-border-rotate {
     animation: border-rotate 3s linear infinite;
   }
 
   .animate-border-rotate-green {
     animation: border-rotate-green 3s linear infinite;
+  }
+
+  .animate-border-rotate-amber {
+    animation: border-rotate-amber 3s linear infinite;
   }
 
   @keyframes border-rotate {
@@ -98,8 +120,13 @@
     to { --border-angle-green: 360deg; }
   }
 
+  @keyframes border-rotate-amber {
+    to { --border-angle-amber: 360deg; }
+  }
+
   .animate-border-rotate,
-  .animate-border-rotate-green {
+  .animate-border-rotate-green,
+  .animate-border-rotate-amber {
     -webkit-mask:
       linear-gradient(#fff 0 0) content-box,
       linear-gradient(#fff 0 0);

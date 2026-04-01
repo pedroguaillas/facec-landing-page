@@ -15,11 +15,12 @@ if (promo) {
 const fixedPlans = [
     { label: "7 días", price: 7.77, desc: "Certificado válido por una semana." },
     { label: "30 días", price: 9.99, desc: "Certificado válido por 1 mes." },
-    { label: "1 año", price: 18.18, desc: "Certificado válido por un año." },
+    // { label: "1 año", price: 18.18, desc: "Certificado válido por un año." },
 ];
 
-// Planes con posible promo (2-5 años)
+// Planes con posible promo (1-5 años)
 const annualPlans = [
+    { period: 1, label: "1 año", normalPrice: 18.18, desc: "Certificado válido por un años." },
     { period: 2, label: "2 años", normalPrice: 29.29, desc: "Certificado válido por dos años." },
     { period: 3, label: "3 años", normalPrice: 39.39, desc: "Certificado válido por tres años." },
     { period: 4, label: "4 años", normalPrice: 49.49, desc: "Certificado válido por cuatro años." },
@@ -30,18 +31,18 @@ const annualPlans = [
 <section id="precios" class="container mx-auto py-16 px-4">
     <div class="text-center mb-3">
         <span
-            class="reveal reveal-up inline-block bg-violet-100 text-violet-700 text-xs font-semibold px-4 py-1 rounded-full mb-4 uppercase tracking-wide"
+            class="reveal reveal-up inline-block bg-indigo-100 text-indigo-700 text-xs font-semibold px-4 py-1 rounded-full mb-4 uppercase tracking-wide"
         >
             Planes disponibles
         </span>
-        <h2 class="reveal reveal-up text-3xl font-extrabold text-violet-900">Precios de la Firma Electrónica</h2>
+        <h2 class="reveal reveal-up text-3xl font-extrabold text-indigo-900">Precios de la Firma Electrónica</h2>
     </div>
 
     {
         promo && (
             <p class="reveal reveal-up reveal-delay-1 text-center mb-2">
-                <span class="inline-flex items-center gap-2 bg-violet-100 text-violet-700 text-sm font-semibold px-4 py-1.5 rounded-full">
-                    <span>♀</span>
+                <span class="inline-flex items-center gap-2 bg-indigo-100 text-indigo-700 text-sm font-semibold px-4 py-1.5 rounded-full">
+                    <span>✝</span>
                     <span>
                         {promo.display.title} · {promo.display.badge} en planes anuales
                     </span>
@@ -63,13 +64,13 @@ const annualPlans = [
                 <div
                     class={`reveal reveal-up reveal-delay-${i + 1} bg-white border border-gray-100 rounded-2xl shadow-sm p-6 text-center flex flex-col justify-between card-hover`}
                 >
-                    <h3 class="text-xl font-semibold text-violet-800 mb-2">{plan.label}</h3>
-                    <p class="text-3xl font-bold text-violet-900 mb-2">${plan.price.toFixed(2)}</p>
+                    <h3 class="text-xl font-semibold text-indigo-800 mb-2">{plan.label}</h3>
+                    <p class="text-3xl font-bold text-indigo-900 mb-2">${plan.price.toFixed(2)}</p>
                     <p class="text-gray-400 mb-6 text-sm">{plan.desc}</p>
                     <a
                         href="https://wa.me/593959649714"
                         target="_blank"
-                        class="bg-violet-600 text-white py-2 px-4 rounded-full hover:bg-violet-700 btn-hover"
+                        class="bg-indigo-600 text-white py-2 px-4 rounded-full hover:bg-indigo-700 btn-hover"
                     >
                         Contratar
                     </a>
@@ -88,29 +89,29 @@ const annualPlans = [
 
                 return (
                     <div
-                        class={`reveal reveal-up reveal-delay-${i + 1} relative rounded-xl shadow-md p-6 text-center flex flex-col justify-between card-hover border-2 ${hasPromo ? "border-violet-400 bg-white" : "border-gray-100 bg-white"}`}
+                        class={`reveal reveal-up reveal-delay-${i + 1} relative rounded-xl shadow-md p-6 text-center flex flex-col justify-between card-hover border-2 ${hasPromo ? "border-indigo-400 bg-white" : "border-gray-100 bg-white"}`}
                     >
                         {isPopular && (
-                            <span class="absolute -top-3 left-1/2 -translate-x-1/2 bg-rose-500 text-white text-xs font-bold px-3 py-1 rounded-full whitespace-nowrap">
+                            <span class="absolute -top-3 left-1/2 -translate-x-1/2 bg-amber-500 text-white text-xs font-bold px-3 py-1 rounded-full whitespace-nowrap">
                                 ⭐ Más popular
                             </span>
                         )}
 
                         {hasPromo && (
-                            <span class="absolute top-3 right-3 bg-violet-600 text-white text-xs font-bold px-2 py-0.5 rounded-full">
+                            <span class="absolute top-3 right-3 bg-indigo-600 text-white text-xs font-bold px-2 py-0.5 rounded-full">
                                 {promo.display.badge}
                             </span>
                         )}
 
-                        <h3 class={`text-xl font-semibold mb-2 ${hasPromo ? "text-violet-800" : "text-violet-800"}`}>
+                        <h3 class={`text-xl font-semibold mb-2 ${hasPromo ? "text-indigo-800" : "text-indigo-800"}`}>
                             {plan.label}
                         </h3>
 
                         {hasPromo ? (
                             <div class="mb-2">
                                 <p class="text-sm line-through text-gray-400">${plan.normalPrice.toFixed(2)}</p>
-                                <p class="text-3xl font-bold text-violet-700">${promoPricing.promoPrice.toFixed(2)}</p>
-                                <span class="inline-block mt-1 text-xs font-semibold bg-rose-100 text-rose-600 px-2 py-0.5 rounded-full">
+                                <p class="text-3xl font-bold text-indigo-700">${promoPricing.promoPrice.toFixed(2)}</p>
+                                <span class="inline-block mt-1 text-xs font-semibold bg-amber-100 text-amber-600 px-2 py-0.5 rounded-full">
                                     Ahorras ${promoPricing.savings.toFixed(2)}
                                 </span>
                             </div>
@@ -118,12 +119,12 @@ const annualPlans = [
                             <p class="text-3xl font-bold text-sky-900 mb-2">${plan.normalPrice.toFixed(2)}</p>
                         )}
 
-                        <p class={`mb-6 text-sm ${hasPromo ? "text-violet-600" : "text-sky-600"}`}>{plan.desc}</p>
+                        <p class={`mb-6 text-sm ${hasPromo ? "text-indigo-600" : "text-sky-600"}`}>{plan.desc}</p>
 
                         <a
                             href="https://wa.me/593959649714"
                             target="_blank"
-                            class={`py-2 px-4 rounded-full btn-hover text-white ${hasPromo ? "bg-violet-600 hover:bg-violet-700" : "bg-sky-600 hover:bg-sky-700"}`}
+                            class={`py-2 px-4 rounded-full btn-hover text-white ${hasPromo ? "bg-indigo-600 hover:bg-indigo-700" : "bg-sky-600 hover:bg-sky-700"}`}
                         >
                             Contratar
                         </a>

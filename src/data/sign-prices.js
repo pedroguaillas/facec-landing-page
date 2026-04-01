@@ -23,15 +23,15 @@ export const pricings = [
         quantity: 1,
         period: "año",
         normalPrice: 18.18,
-        promoPrice: 18.18,
-        savings: 0,
+        promoPrice: 16.97,
+        savings: 1.21,
         currency: "USD",
     },
     {
         quantity: 2,
         period: "años",
         normalPrice: 29.29,
-        promoPrice: 24.90,
+        promoPrice: 24.9,
         savings: 4.39,
         currency: "USD",
     },
@@ -62,30 +62,25 @@ export const pricings = [
 ];
 
 /**
- * Promoción activa de Mes de la Mujer — Marzo 2026
+ * Promoción activa de Semana Santa — Abril 2026
  */
-const promoMesMujer = {
-    id: "firma-marzo-2026",
+const promoSemanaSanta = {
+    id: "firma-semana-santa-2026",
     active: true,
     period: {
-        startDate: "2026-03-11",
-        endDate: "2026-03-31",
+        startDate: "2026-04-01",
+        endDate: "2026-04-06",
     },
-    // Solo los planes anuales tienen descuento; "period" aquí es la cantidad de años
-    pricings: pricings
-        .filter((p) => p.period === "años" && p.savings > 0)
-        .map((p) => ({ ...p, period: p.quantity })),
+    // Planes anuales (1-5 años) con descuento
+    pricings: pricings.filter((p) => (p.period === "año" || p.period === "años") && p.savings > 0).map((p) => ({ ...p, period: p.quantity })),
     display: {
         badge: "15% OFF",
-        title: "Promoción Día de la Mujer",
+        title: "Promoción Semana Santa",
         subtitle: "Firma Electrónica de dos años por $24.90",
-        urgency: "Solo válido en marzo 2026",
+        urgency: "Solo válido del 1 al 6 de abril 2026",
         highlight: "¡Hasta $8.94 USD de ahorro!",
     },
-    terms: [
-        "Válido solo para compras en marzo 2026",
-        "No acumulable con otras promociones",
-    ],
+    terms: ["Válido solo del 1 al 6 de abril 2026", "No acumulable con otras promociones"],
 };
 
 /**
@@ -93,12 +88,10 @@ const promoMesMujer = {
  */
 export const getCurrentPromotion = () => {
     const now = new Date();
-    const start = new Date(promoMesMujer.period.startDate);
-    const end = new Date(promoMesMujer.period.endDate + "T23:59:59");
+    const start = new Date(promoSemanaSanta.period.startDate);
+    const end = new Date(promoSemanaSanta.period.endDate + "T23:59:59");
 
-    return promoMesMujer.active && now >= start && now <= end
-        ? promoMesMujer
-        : undefined;
+    return promoSemanaSanta.active && now >= start && now <= end ? promoSemanaSanta : undefined;
 };
 
 /**
