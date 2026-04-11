@@ -1,6 +1,7 @@
 ---
 import Footer from "../components/Footer.astro";
 import Header from "../components/Header.astro";
+import BackToTop from "../components/BackToTop.astro";
 const { title, description } = Astro.props;
 import "../styles/global.css";
 ---
@@ -25,11 +26,22 @@ import "../styles/global.css";
     <meta name="twitter:card" content="facec" />
     <meta name="twitter:description" content={description} />
     <meta name="twitter:image" content="./assets/og-image.png" />
+
+    <!-- Tema sin parpadeo: aplica la clase antes de renderizar -->
+    <script is:inline>
+      (function () {
+        const stored = localStorage.getItem("theme");
+        const systemDark = window.matchMedia("(prefers-color-scheme: dark)").matches;
+        const isDark = stored !== null ? stored === "dark" : systemDark;
+        if (isDark) document.documentElement.classList.add("dark");
+      })();
+    </script>
   </head>
   <body>
     <Header />
     <slot />
     <Footer />
+    <BackToTop />
     <script src="../scripts/scroll-reveal.js"></script>
   </body>
 </html>

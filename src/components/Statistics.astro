@@ -6,8 +6,9 @@ const stats = [
     value: 1204,
     suffix: "+",
     accent: "from-sky-500 to-cyan-400",
-    iconBg: "bg-sky-100",
-    textColor: "text-sky-600",
+    iconBg: "bg-sky-100 dark:bg-sky-500/10",
+    textLight: "text-sky-700",
+    textDark: "dark:text-sky-300",
   },
   {
     icon: "🧾",
@@ -15,8 +16,9 @@ const stats = [
     value: 350918,
     suffix: "+",
     accent: "from-cyan-500 to-teal-400",
-    iconBg: "bg-cyan-100",
-    textColor: "text-cyan-600",
+    iconBg: "bg-cyan-100 dark:bg-cyan-500/10",
+    textLight: "text-cyan-700",
+    textDark: "dark:text-cyan-300",
   },
   {
     icon: "☁️",
@@ -24,20 +26,24 @@ const stats = [
     value: 100,
     suffix: "%",
     accent: "from-indigo-500 to-sky-400",
-    iconBg: "bg-indigo-100",
-    textColor: "text-indigo-600",
+    iconBg: "bg-indigo-100 dark:bg-indigo-500/10",
+    textLight: "text-indigo-700",
+    textDark: "dark:text-indigo-300",
   },
 ];
 ---
 
-<section class="relative py-20 overflow-hidden bg-gradient-to-br from-sky-900 via-sky-800 to-cyan-900">
+<!-- Light: gradiente sky medio-oscuro vibrante | Dark: navy profundo con tinte sky -->
+<section class="relative py-20 overflow-hidden
+  bg-gradient-to-br from-sky-800 via-cyan-700 to-sky-900
+  dark:from-slate-950 dark:via-sky-950 dark:to-slate-950">
 
   <!-- Decorative blobs -->
   <div class="pointer-events-none absolute -top-20 -left-20 w-80 h-80 bg-cyan-500 opacity-10 rounded-full blur-3xl"></div>
-  <div class="pointer-events-none absolute -bottom-20 -right-20 w-80 h-80 bg-sky-400 opacity-10 rounded-full blur-3xl"></div>
+  <div class="pointer-events-none absolute -bottom-20 -right-20 w-80 h-80 bg-sky-400 opacity-10 dark:opacity-5 rounded-full blur-3xl"></div>
 
   <!-- Dot grid pattern -->
-  <div class="pointer-events-none absolute inset-0 opacity-5"
+  <div class="pointer-events-none absolute inset-0 opacity-5 dark:opacity-[0.03]"
     style="background-image: radial-gradient(circle, white 1px, transparent 1px); background-size: 28px 28px;">
   </div>
 
@@ -55,7 +61,7 @@ const stats = [
           por sí solas
         </span>
       </h2>
-      <p class="reveal reveal-up reveal-delay-2 text-sky-300 text-lg max-w-md mx-auto">
+      <p class="reveal reveal-up reveal-delay-2 text-sky-300 dark:text-sky-400 text-lg max-w-md mx-auto">
         Miles de negocios en Ecuador confían en FACEC cada día.
       </p>
     </div>
@@ -63,13 +69,13 @@ const stats = [
     <!-- Stats grid -->
     <div class="grid grid-cols-1 sm:grid-cols-3 gap-6 max-w-4xl mx-auto">
       {stats.map((item, index) => (
-        <div class={`reveal reveal-scale reveal-delay-${index + 1} group relative bg-white/10 backdrop-blur-sm border border-white/10 rounded-3xl p-8 text-center card-hover overflow-hidden`}>
+        <div class={`reveal reveal-scale reveal-delay-${index + 1} group relative bg-white/15 dark:bg-white/5 backdrop-blur-sm border border-white/20 dark:border-white/10 rounded-3xl p-8 text-center card-hover overflow-hidden`}>
 
           <!-- Gradient top line -->
           <div class={`absolute top-0 left-0 right-0 h-1 bg-gradient-to-r ${item.accent}`}></div>
 
           <!-- Icon -->
-          <div class="w-16 h-16 bg-white/15 rounded-2xl flex items-center justify-center text-3xl mx-auto mb-5 group-hover:scale-110 transition-transform duration-300">
+          <div class={`w-16 h-16 ${item.iconBg} rounded-2xl flex items-center justify-center text-3xl mx-auto mb-5 group-hover:scale-110 transition-transform duration-300`}>
             {item.icon}
           </div>
 
@@ -83,7 +89,7 @@ const stats = [
           </div>
 
           <!-- Label -->
-          <p class="text-sky-200 text-sm font-medium">{item.label}</p>
+          <p class="text-sky-200 dark:text-sky-400 text-sm font-medium">{item.label}</p>
         </div>
       ))}
     </div>

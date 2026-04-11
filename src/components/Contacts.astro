@@ -1,27 +1,27 @@
-<section id="contactame" class="relative bg-gradient-to-br from-sky-50 via-white to-cyan-50 py-20 overflow-hidden">
+<section id="contactame" class="relative bg-sky-50 dark:bg-[#071527] py-20 overflow-hidden">
 
-  <!-- Decorative blobs -->
-  <div class="pointer-events-none absolute -top-20 -right-20 w-80 h-80 bg-sky-200 opacity-25 rounded-full blur-3xl"></div>
-  <div class="pointer-events-none absolute -bottom-20 -left-20 w-80 h-80 bg-cyan-200 opacity-25 rounded-full blur-3xl"></div>
+  <!-- Blobs / glow -->
+  <div class="pointer-events-none absolute -top-20 -right-20 w-80 h-80 bg-sky-200 dark:bg-sky-500 opacity-25 dark:opacity-5 rounded-full blur-3xl"></div>
+  <div class="pointer-events-none absolute -bottom-20 -left-20 w-80 h-80 bg-cyan-200 dark:bg-cyan-500 opacity-25 dark:opacity-5 rounded-full blur-3xl"></div>
 
   <div class="container mx-auto px-6 relative z-10">
 
     <!-- Header -->
     <div class="text-center mb-12">
-      <span class="reveal reveal-up inline-flex items-center gap-2 bg-sky-100 text-sky-700 text-xs font-semibold px-4 py-1.5 rounded-full mb-4 uppercase tracking-wide">
+      <span class="reveal reveal-up inline-flex items-center gap-2 bg-sky-100 dark:bg-sky-500/10 border border-sky-200 dark:border-sky-500/20 text-sky-700 dark:text-sky-400 text-xs font-semibold px-4 py-1.5 rounded-full mb-4 uppercase tracking-wide">
         <svg class="w-3.5 h-3.5" fill="currentColor" viewBox="0 0 20 20"><path d="M2 3a1 1 0 011-1h2.153a1 1 0 01.986.836l.74 4.435a1 1 0 01-.54 1.06l-1.548.773a11.037 11.037 0 006.105 6.105l.774-1.548a1 1 0 011.059-.54l4.435.74a1 1 0 01.836.986V17a1 1 0 01-1 1h-2C7.82 18 2 12.18 2 5V3z"/></svg>
         Atención al cliente
       </span>
-      <h2 class="reveal reveal-up reveal-delay-1 text-4xl lg:text-5xl font-extrabold text-sky-900 mb-4">
+      <h2 class="reveal reveal-up reveal-delay-1 text-4xl lg:text-5xl font-extrabold text-sky-900 dark:text-white mb-4">
         ¿Tienes alguna <span class="text-transparent bg-clip-text bg-gradient-to-r from-sky-500 to-cyan-500">duda?</span>
       </h2>
-      <p class="reveal reveal-up reveal-delay-2 text-sky-700 text-lg max-w-xl mx-auto">
+      <p class="reveal reveal-up reveal-delay-2 text-sky-700 dark:text-slate-400 text-lg max-w-xl mx-auto">
         Contáctanos y resolveremos tus dudas con la mejor atención.
       </p>
     </div>
 
     <!-- Contact card -->
-    <div class="reveal reveal-up reveal-delay-2 max-w-2xl mx-auto bg-white rounded-3xl shadow-xl border border-sky-100 overflow-hidden">
+    <div class="reveal reveal-up reveal-delay-2 max-w-2xl mx-auto bg-white dark:bg-white/5 rounded-3xl shadow-xl dark:shadow-none border border-sky-100 dark:border-white/10 overflow-hidden">
 
       <!-- Card top banner -->
       <div class="bg-gradient-to-r from-sky-600 to-cyan-500 px-8 py-6 text-white text-center">
@@ -32,8 +32,7 @@
       <!-- Card body -->
       <div class="px-8 py-8 flex flex-col sm:flex-row gap-5 justify-center items-center">
 
-        <!-- Llamar -->
-        <div class="w-full sm:w-auto relative rounded-full cursor-pointer transition-all duration-300 hover:scale-105 hover:-translate-y-1 p-px overflow-hidden shadow-lg shadow-sky-300/50">
+        <div class="w-full sm:w-auto relative rounded-full cursor-pointer transition-all duration-300 hover:scale-105 hover:-translate-y-1 p-px overflow-hidden shadow-lg shadow-sky-300/50 dark:shadow-sky-900/30">
           <div class="absolute inset-[-4px] rounded-full animate-border-rotate bg-[conic-gradient(from_var(--border-angle),#0ea5e9_0%,#38bdf8_50%,#0284c7_100%)]"></div>
           <a
             href="tel:+593959649714"
@@ -44,8 +43,7 @@
           </a>
         </div>
 
-        <!-- WhatsApp -->
-        <div class="w-full sm:w-auto relative rounded-full cursor-pointer transition-all duration-300 hover:scale-105 hover:-translate-y-1 p-px overflow-hidden shadow-lg shadow-emerald-300/50">
+        <div class="w-full sm:w-auto relative rounded-full cursor-pointer transition-all duration-300 hover:scale-105 hover:-translate-y-1 p-px overflow-hidden shadow-lg shadow-emerald-300/50 dark:shadow-emerald-900/30">
           <div class="absolute inset-[-4px] rounded-full animate-border-rotate-green bg-[conic-gradient(from_var(--border-angle-green),#22c55e_0%,#86efac_50%,#16a34a_100%)]"></div>
           <a
             href="https://wa.me/593959649714"
@@ -57,8 +55,7 @@
           </a>
         </div>
 
-        <!-- Email -->
-        <div class="w-full sm:w-auto relative rounded-full cursor-pointer transition-all duration-300 hover:scale-105 hover:-translate-y-1 p-px overflow-hidden shadow-lg shadow-amber-300/50">
+        <div class="w-full sm:w-auto relative rounded-full cursor-pointer transition-all duration-300 hover:scale-105 hover:-translate-y-1 p-px overflow-hidden shadow-lg shadow-amber-300/50 dark:shadow-amber-900/30">
           <div class="absolute inset-[-4px] rounded-full animate-border-rotate-amber bg-[conic-gradient(from_var(--border-angle-amber),#f59e0b_0%,#fbbf24_50%,#d97706_100%)]"></div>
           <a
             href="mailto:info@facec.ec"
@@ -72,7 +69,7 @@
       </div>
 
       <!-- Card footer -->
-      <div class="border-t border-sky-100 px-8 py-4 bg-sky-50 flex flex-col sm:flex-row justify-center gap-6 text-sm text-sky-600 text-center">
+      <div class="border-t border-sky-100 dark:border-white/10 px-8 py-4 bg-sky-50 dark:bg-white/5 flex flex-col sm:flex-row justify-center gap-6 text-sm text-sky-600 dark:text-slate-400 text-center">
         <span class="flex items-center justify-center gap-2"><span>🕐</span> Atención de Lunes a Viernes</span>
         <span class="flex items-center justify-center gap-2"><span>⚡</span> Respuesta en menos de 1 hora</span>
       </div>
@@ -87,49 +84,29 @@
     inherits: false;
     initial-value: 0deg;
   }
-
   @property --border-angle-green {
     syntax: "<angle>";
     inherits: false;
     initial-value: 0deg;
   }
-
   @property --border-angle-amber {
     syntax: "<angle>";
     inherits: false;
     initial-value: 0deg;
   }
 
-  .animate-border-rotate {
-    animation: border-rotate 3s linear infinite;
-  }
+  .animate-border-rotate { animation: border-rotate 3s linear infinite; }
+  .animate-border-rotate-green { animation: border-rotate-green 3s linear infinite; }
+  .animate-border-rotate-amber { animation: border-rotate-amber 3s linear infinite; }
 
-  .animate-border-rotate-green {
-    animation: border-rotate-green 3s linear infinite;
-  }
-
-  .animate-border-rotate-amber {
-    animation: border-rotate-amber 3s linear infinite;
-  }
-
-  @keyframes border-rotate {
-    to { --border-angle: 360deg; }
-  }
-
-  @keyframes border-rotate-green {
-    to { --border-angle-green: 360deg; }
-  }
-
-  @keyframes border-rotate-amber {
-    to { --border-angle-amber: 360deg; }
-  }
+  @keyframes border-rotate { to { --border-angle: 360deg; } }
+  @keyframes border-rotate-green { to { --border-angle-green: 360deg; } }
+  @keyframes border-rotate-amber { to { --border-angle-amber: 360deg; } }
 
   .animate-border-rotate,
   .animate-border-rotate-green,
   .animate-border-rotate-amber {
-    -webkit-mask:
-      linear-gradient(#fff 0 0) content-box,
-      linear-gradient(#fff 0 0);
+    -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
     -webkit-mask-composite: xor;
     mask-composite: exclude;
     padding: 4px;
