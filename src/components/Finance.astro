@@ -1,0 +1,215 @@
+---
+// Datos de ejemplo para el panel "Salud de tu negocio" (no son datos reales).
+const weeks = [
+  { label: "Esta semana", in: 2850, out: 1700 },
+  { label: "Semana 2", in: 1640, out: 2100 },
+  { label: "Semana 3", in: 3120, out: 1250 },
+  { label: "Semana 4", in: 2200, out: 1410 },
+];
+const maxWeek = Math.max(...weeks.flatMap((w) => [w.in, w.out]));
+
+const aging = [
+  { label: "Al día", amount: 6040, color: "bg-emerald-500" },
+  { label: "1–30 días", amount: 2150, color: "bg-amber-400" },
+  { label: "31–60 días", amount: 1080, color: "bg-orange-500" },
+  { label: "Más de 60", amount: 540, color: "bg-rose-500" },
+];
+const agingTotal = aging.reduce((s, a) => s + a.amount, 0);
+
+const money = (n: number) =>
+  n.toLocaleString("es-EC", { style: "currency", currency: "USD", maximumFractionDigits: 0 });
+
+const capabilities = [
+  {
+    title: "Ventas y compras a crédito",
+    desc: "Define días de plazo y registra abonos parciales. Cada factura muestra cuánto falta por cobrar o pagar.",
+  },
+  {
+    title: "Anticipos de clientes y proveedores",
+    desc: "Recibe o entrega dinero por adelantado y aplícalo después a la factura que corresponde.",
+  },
+  {
+    title: "Cuentas por cobrar y por pagar",
+    desc: "Estado de cuenta por cliente y proveedor, saldos iniciales y lo vencido ordenado por antigüedad.",
+  },
+  {
+    title: "Cajas y bancos",
+    desc: "Abre y cierra caja contando billetes y monedas. Registra depósitos, retiros y transferencias entre cuentas.",
+  },
+  {
+    title: "Ingresos y gastos clasificados",
+    desc: "Sueldos, IESS, arriendo, servicios básicos y más. Separa lo que gana el negocio de los aportes y préstamos.",
+  },
+];
+---
+
+<section id="finanzas" class="relative bg-sky-50 dark:bg-[#071527] py-20 lg:py-28 overflow-hidden">
+  <div class="container mx-auto px-6 relative z-10">
+    <div class="grid lg:grid-cols-[minmax(0,5fr)_minmax(0,6fr)] gap-12 lg:gap-16 items-start">
+
+      <!-- Texto -->
+      <div class="lg:sticky lg:top-28">
+        <p class="reveal reveal-up text-sm font-semibold text-sky-600 dark:text-sky-400 mb-3">
+          Nuevo en FACEC
+        </p>
+        <h2 class="reveal reveal-up reveal-delay-1 text-4xl lg:text-5xl font-extrabold text-sky-950 dark:text-white leading-tight mb-5">
+          Facturar es la mitad.<br />La otra es saber cuánto dinero tienes.
+        </h2>
+        <p class="reveal reveal-up reveal-delay-2 text-sky-800 dark:text-slate-400 text-lg leading-relaxed mb-10 max-w-xl">
+          Cada factura que emites alimenta tu caja, tu cartera y lo que debes reservar para el SRI.
+          Sin hojas de Excel aparte.
+        </p>
+
+        <dl class="reveal reveal-up reveal-delay-3 space-y-6 max-w-xl">
+          {capabilities.map((c) => (
+            <div class="flex gap-4">
+              <svg class="w-5 h-5 mt-1 flex-shrink-0 text-sky-500 dark:text-sky-400" fill="currentColor" viewBox="0 0 20 20" aria-hidden="true">
+                <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd" />
+              </svg>
+              <div>
+                <dt class="font-bold text-sky-950 dark:text-white">{c.title}</dt>
+                <dd class="text-sky-800/80 dark:text-slate-400 text-sm leading-relaxed mt-1">{c.desc}</dd>
+              </div>
+            </div>
+          ))}
+        </dl>
+      </div>
+
+      <!-- Panel de ejemplo -->
+      <div class="reveal reveal-up reveal-delay-2">
+        <div class="rounded-2xl bg-white dark:bg-[#0b1d33] border border-sky-200/70 dark:border-white/10 shadow-2xl shadow-sky-900/10 dark:shadow-black/40 overflow-hidden">
+
+          <div class="flex items-center justify-between px-6 py-4 border-b border-sky-100 dark:border-white/10">
+            <div>
+              <p class="font-bold text-sky-950 dark:text-white">Salud de tu negocio</p>
+              <p class="text-xs text-sky-700/70 dark:text-slate-500">Próximos 30 días</p>
+            </div>
+            <span class="text-xs text-sky-700/70 dark:text-slate-500">Datos de ejemplo</span>
+          </div>
+
+          <!-- Flujo de caja -->
+          <div class="px-6 py-6 border-b border-sky-100 dark:border-white/10">
+            <div class="flex flex-wrap items-end justify-between gap-4 mb-6">
+              <div>
+                <p class="text-sm text-sky-700 dark:text-slate-400">Dinero proyectado en 30 días</p>
+                <p class="text-4xl font-extrabold text-sky-950 dark:text-white tabular-nums">{money(8420)}</p>
+              </div>
+              <p class="text-xs text-sky-700/80 dark:text-slate-400 tabular-nums leading-relaxed text-right">
+                Caja y bancos hoy {money(5070)}<br />
+                + por cobrar {money(9810)} − por pagar {money(6460)}
+              </p>
+            </div>
+
+            <div class="grid grid-cols-4 gap-3 sm:gap-5 h-36 items-end" role="img" aria-label="Entradas y salidas estimadas por semana">
+              {weeks.map((w) => (
+                <div class="flex flex-col h-full justify-end">
+                  <div class="flex items-end gap-1 flex-1">
+                    <div class="flex-1 rounded-t-md bg-sky-500 dark:bg-sky-400" style={`height:${(w.in / maxWeek) * 100}%`}></div>
+                    <div class="flex-1 rounded-t-md bg-sky-200 dark:bg-slate-600" style={`height:${(w.out / maxWeek) * 100}%`}></div>
+                  </div>
+                  <p class="text-[11px] text-sky-700/70 dark:text-slate-500 mt-2 text-center leading-tight">{w.label}</p>
+                </div>
+              ))}
+            </div>
+            <div class="flex gap-5 mt-4 text-xs text-sky-700/80 dark:text-slate-400">
+              <span class="inline-flex items-center gap-1.5"><span class="w-2.5 h-2.5 rounded-sm bg-sky-500 dark:bg-sky-400"></span>Entra</span>
+              <span class="inline-flex items-center gap-1.5"><span class="w-2.5 h-2.5 rounded-sm bg-sky-200 dark:bg-slate-600"></span>Sale</span>
+            </div>
+          </div>
+
+          <!-- Cartera -->
+          <div class="px-6 py-6 border-b border-sky-100 dark:border-white/10">
+            <div class="flex items-baseline justify-between mb-3">
+              <p class="text-sm text-sky-700 dark:text-slate-400">Por cobrar a clientes</p>
+              <p class="font-bold text-sky-950 dark:text-white tabular-nums">{money(agingTotal)}</p>
+            </div>
+            <div class="flex h-3 rounded-full overflow-hidden" role="img" aria-label="Cartera por antigüedad">
+              {aging.map((a) => (
+                <div class={a.color} style={`width:${(a.amount / agingTotal) * 100}%`}></div>
+              ))}
+            </div>
+            <ul class="grid grid-cols-2 sm:grid-cols-4 gap-2 mt-3 text-xs">
+              {aging.map((a) => (
+                <li class="flex items-center gap-1.5 text-sky-800/80 dark:text-slate-400">
+                  <span class={`w-2 h-2 rounded-full ${a.color}`}></span>
+                  {a.label} <span class="tabular-nums font-semibold text-sky-950 dark:text-slate-200">{money(a.amount)}</span>
+                </li>
+              ))}
+            </ul>
+          </div>
+
+          <!-- Reserva SRI -->
+          <div class="px-6 py-6 bg-sky-50/60 dark:bg-white/[0.03]">
+            <div class="flex flex-wrap items-baseline justify-between gap-2">
+              <p class="text-sm text-sky-700 dark:text-slate-400">Reserva para el SRI (IVA estimado)</p>
+              <p class="font-bold text-sky-950 dark:text-white tabular-nums">{money(612)}</p>
+            </div>
+            <p class="text-sm text-sky-950 dark:text-slate-200 mt-1">
+              Vence el <strong id="sri-due-date">—</strong>
+            </p>
+          </div>
+        </div>
+
+        <!-- Calendario SRI interactivo -->
+        <div class="mt-6 rounded-2xl border border-sky-200/70 dark:border-white/10 bg-white/70 dark:bg-white/[0.03] px-6 py-5">
+          <label for="ruc-digit" class="block font-semibold text-sky-950 dark:text-white">
+            ¿Qué día te toca declarar?
+          </label>
+          <p class="text-sm text-sky-700/80 dark:text-slate-400 mt-1 mb-4">
+            Escribe el noveno dígito de tu RUC. FACEC calcula la fecha y te avisa cuánto IVA reservar.
+          </p>
+          <div class="flex flex-wrap items-center gap-4">
+            <input
+              id="ruc-digit"
+              type="text"
+              inputmode="numeric"
+              maxlength="1"
+              pattern="[0-9]"
+              value="5"
+              autocomplete="off"
+              class="w-14 h-14 text-center text-2xl font-extrabold rounded-xl border-2 border-sky-300 dark:border-sky-500/40 bg-white dark:bg-[#020b18] text-sky-950 dark:text-white focus:outline-none focus:border-sky-500"
+            />
+            <p id="sri-due-text" class="text-sky-950 dark:text-slate-200" aria-live="polite"></p>
+          </div>
+          <p class="text-xs text-sky-700/60 dark:text-slate-500 mt-4">
+            Si la fecha cae en fin de semana o feriado, pasa al siguiente día hábil. RIMPE emprendedores declaran IVA cada semestre.
+          </p>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<script>
+  // Calendario SRI: día de declaración según el noveno dígito del RUC.
+  const DUE_DAY: Record<string, number> = { "1": 10, "2": 12, "3": 14, "4": 16, "5": 18, "6": 20, "7": 22, "8": 24, "9": 26, "0": 28 };
+
+  const input = document.getElementById("ruc-digit") as HTMLInputElement | null;
+  const text = document.getElementById("sri-due-text");
+  const dueDate = document.getElementById("sri-due-date");
+
+  function render() {
+    if (!input || !text || !dueDate) return;
+    input.value = input.value.replace(/\D/g, "").slice(0, 1);
+    const day = DUE_DAY[input.value];
+
+    if (day === undefined) {
+      text.textContent = "Ingresa un número del 0 al 9.";
+      dueDate.textContent = "—";
+      return;
+    }
+
+    // El IVA del mes en curso se declara el mes siguiente.
+    const now = new Date();
+    const date = new Date(now.getFullYear(), now.getMonth() + 1, day);
+    while (date.getDay() === 0 || date.getDay() === 6) date.setDate(date.getDate() + 1);
+
+    const formatted = date.toLocaleDateString("es-EC", { day: "numeric", month: "long" });
+    text.innerHTML = `Declaras el día <strong>${day}</strong> de cada mes. La próxima: <strong>${formatted}</strong>.`;
+    dueDate.textContent = formatted;
+  }
+
+  input?.addEventListener("input", render);
+  render();
+</script>

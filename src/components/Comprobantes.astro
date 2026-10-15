@@ -25,7 +25,7 @@ const comprobantes = [
   {
     icon: "📋",
     title: "Retenciones",
-    desc: "Genera comprobantes de retención en la fuente e IVA de forma automática.",
+    desc: "Genera retenciones en la fuente e IVA desde tus compras y reenvíalas por correo al proveedor.",
     tag: "Retención",
     tagLight: "bg-amber-100 text-amber-700",
     tagDark: "dark:bg-amber-500/10 dark:text-amber-400",
@@ -36,7 +36,7 @@ const comprobantes = [
   {
     icon: "🚚",
     title: "Guías de remisión",
-    desc: "Documenta el traslado de mercadería con guías de remisión electrónicas.",
+    desc: "Documenta el traslado de mercadería con guías de remisión electrónicas, con transportista y placa.",
     tag: "Logística",
     tagLight: "bg-emerald-100 text-emerald-700",
     tagDark: "dark:bg-emerald-500/10 dark:text-emerald-400",
@@ -66,6 +66,28 @@ const comprobantes = [
     accent: "from-indigo-400 to-indigo-300",
     iconBg: "bg-indigo-100 dark:bg-indigo-500/10",
   },
+  {
+    icon: "🗒️",
+    title: "Proformas",
+    desc: "Envía cotizaciones a tus clientes y conviértelas en factura con un clic cuando las aprueben.",
+    tag: "Cotizaciones",
+    tagLight: "bg-cyan-100 text-cyan-700",
+    tagDark: "dark:bg-cyan-500/10 dark:text-cyan-400",
+    border: "border-cyan-100 dark:border-white/10",
+    accent: "from-cyan-400 to-cyan-300",
+    iconBg: "bg-cyan-100 dark:bg-cyan-500/10",
+  },
+  {
+    icon: "🧮",
+    title: "Notas de venta",
+    desc: "Registra ventas con nota de venta y numeración propia, junto al resto de tus comprobantes.",
+    tag: "RIMPE",
+    tagLight: "bg-teal-100 text-teal-700",
+    tagDark: "dark:bg-teal-500/10 dark:text-teal-400",
+    border: "border-teal-100 dark:border-white/10",
+    accent: "from-teal-400 to-teal-300",
+    iconBg: "bg-teal-100 dark:bg-teal-500/10",
+  },
 ];
 ---
 
@@ -93,9 +115,9 @@ const comprobantes = [
     </div>
 
     <!-- Comprobantes grid -->
-    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 mb-12">
+    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 mb-12">
       {comprobantes.map((c, i) => (
-        <div class={`reveal reveal-up reveal-delay-${(i % 3) + 1} group bg-white dark:bg-white/5 rounded-3xl border ${c.border} shadow-md dark:shadow-none card-hover overflow-hidden relative flex flex-col`}>
+        <div class={`reveal reveal-up reveal-delay-${(i % 4) + 1} group bg-white dark:bg-white/5 rounded-3xl border ${c.border} shadow-md dark:shadow-none card-hover overflow-hidden relative flex flex-col`}>
           <div class={`h-1.5 bg-gradient-to-r ${c.accent} flex-shrink-0`}></div>
           <div class="p-6 flex flex-col flex-1">
             <div class={`w-14 h-14 ${c.iconBg} rounded-2xl flex items-center justify-center text-2xl mb-4 group-hover:scale-110 transition-transform duration-300 shadow-sm dark:shadow-none`}>
@@ -119,7 +141,7 @@ const comprobantes = [
         <div class="text-center md:text-left flex-1">
           <h3 class="text-xl font-extrabold mb-1">Emisión de comprobantes en bloque</h3>
           <p class="text-indigo-100 text-sm leading-relaxed">
-            Emite cientos de comprobantes electrónicos de forma simultánea con un solo clic. Ahorra tiempo y elimina la emisión manual uno por uno.
+            Sube un Excel con hasta 500 facturas y FACEC las emite y autoriza en el SRI por ti. Clientes y productos se reconocen por su identificación y código.
           </p>
         </div>
         <div class="flex-shrink-0">

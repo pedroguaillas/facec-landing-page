@@ -1,9 +1,9 @@
 ---
 const features = [
   { icon: "🧾", text: "Facturas, retenciones, notas de crédito y más" },
-  { icon: "☁️", text: "100% en la nube, sin instalaciones" },
-  { icon: "📱", text: "Funciona en cualquier dispositivo" },
-  { icon: "⚡", text: "Emisión en bloque con un clic" },
+  { icon: "🔁", text: "Facturas recurrentes que se emiten solas" },
+  { icon: "💵", text: "Cobros, pagos, cajas y bancos" },
+  { icon: "⚡", text: "Hasta 500 comprobantes por lote desde Excel" },
 ];
 ---
 
@@ -51,36 +51,40 @@ const features = [
 
       <!-- Headline -->
       <h1 class="reveal reveal-up reveal-delay-1 font-extrabold text-white text-4xl sm:text-5xl lg:text-6xl xl:text-7xl leading-tight mb-6">
-        Emite tus facturas<br/>
+        Factura, cobra y<br/>
         <span class="text-transparent bg-clip-text bg-gradient-to-r from-sky-300 via-cyan-200 to-sky-300 animate-gradient">
-          fácil y rápido
+          controla tu negocio
         </span>
       </h1>
 
       <!-- Subtext -->
       <p class="reveal reveal-up reveal-delay-2 text-sky-200/80 text-lg lg:text-xl max-w-xl mx-auto mb-10 leading-relaxed">
-        FACEC te permite emitir todos tus comprobantes electrónicos autorizados por el SRI desde cualquier parte del mundo.
+        Emite tus comprobantes electrónicos autorizados por el SRI y lleva al día lo que te deben, lo que debes y el dinero en caja.
       </p>
 
       <!-- CTAs -->
-      <div class="reveal reveal-up reveal-delay-3 flex flex-col sm:flex-row gap-4 justify-center mb-14">
+      <div class="reveal reveal-up reveal-delay-3 flex flex-col sm:flex-row gap-4 justify-center mb-4">
         <a
-          href="https://app.facec.ec/login"
-          aria-label="Ir al inicio de sesión de la aplicación FACEC"
+          href="https://app.facec.ec/register"
+          aria-label="Crear cuenta de prueba gratis en FACEC"
           target="_blank"
           class="inline-flex items-center justify-center gap-2 rounded-full bg-sky-400 hover:bg-sky-300 text-sky-950 font-bold px-10 py-4 text-lg shadow-lg shadow-sky-500/30 btn-hover transition-all"
         >
           <svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M13 10V3L4 14h7v7l9-11h-7z"/></svg>
-          Iniciar sesión
+          Prueba gratis 1 mes
         </a>
         <a
-          href="#precios"
+          href="https://app.facec.ec/login"
+          aria-label="Ir al inicio de sesión de la aplicación FACEC"
+          target="_blank"
           class="inline-flex items-center justify-center gap-2 rounded-full bg-white/10 hover:bg-white/20 text-white font-semibold px-10 py-4 text-lg border border-white/20 backdrop-blur-sm btn-hover transition-all"
         >
-          Ver planes
-          <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M19 9l-7 7-7-7"/></svg>
+          Iniciar sesión
         </a>
       </div>
+      <p class="reveal reveal-up reveal-delay-3 text-sm text-sky-200/70 mb-14">
+        Todas las funciones durante la prueba. Te registras con tu RUC y la razón social se completa desde el SRI.
+      </p>
 
       <!-- Feature pills -->
       <div class="reveal reveal-up reveal-delay-4 grid grid-cols-1 sm:grid-cols-2 gap-3 max-w-2xl mx-auto mb-12">

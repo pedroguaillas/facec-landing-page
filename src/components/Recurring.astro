@@ -1,0 +1,105 @@
+---
+const frequencies = ["Semanal", "Mensual", "Bimestral", "Trimestral", "Semestral", "Anual"];
+
+// Historial de ejemplo de una plantilla mensual.
+const runs = [
+  { period: "Octubre 2026", date: "1 oct · 08:00", state: "Autorizada" },
+  { period: "Septiembre 2026", date: "1 sep · 08:00", state: "Autorizada" },
+  { period: "Agosto 2026", date: "1 ago · 08:00", state: "Autorizada" },
+];
+
+const points = [
+  {
+    title: "Elige cada cuánto y a qué hora",
+    desc: "Semanal, mensual, bimestral, trimestral, semestral o anual. La factura sale sola el día y la hora que definas.",
+  },
+  {
+    title: "El mes se escribe solo",
+    desc: "Usa {mes}, {año} o {periodo} en la descripción y cada factura dice “Pensión noviembre 2026” sin que la edites.",
+  },
+  {
+    title: "Nunca se factura dos veces",
+    desc: "Cada período se emite una sola vez. Puedes pausar, reanudar o emitir por adelantado cuando quieras.",
+  },
+  {
+    title: "Termina cuando tú digas",
+    desc: "Por fecha o por número de facturas. Ideal para contratos de 12 meses, pensiones o arriendos.",
+  },
+];
+---
+
+<section id="recurrentes" class="relative bg-white dark:bg-[#020b18] py-20 lg:py-28 overflow-hidden">
+  <div class="container mx-auto px-6 relative z-10">
+    <div class="grid lg:grid-cols-2 gap-12 lg:gap-16 items-center">
+
+      <!-- Plantilla de ejemplo -->
+      <div class="reveal reveal-up order-2 lg:order-1">
+        <div class="rounded-2xl border border-sky-200/70 dark:border-white/10 bg-sky-50/50 dark:bg-white/[0.03] p-6 sm:p-8">
+          <div class="flex flex-wrap items-start justify-between gap-3 mb-6">
+            <div>
+              <p class="text-xs text-sky-700/70 dark:text-slate-500">Factura recurrente</p>
+              <p class="text-xl font-bold text-sky-950 dark:text-white">Arriendo local comercial 3</p>
+              <p class="text-sm text-sky-800/80 dark:text-slate-400">Comercial Andrade Cía. Ltda.</p>
+            </div>
+            <span class="inline-flex items-center gap-1.5 text-xs font-semibold text-emerald-700 dark:text-emerald-400 bg-emerald-100 dark:bg-emerald-500/10 px-3 py-1 rounded-full">
+              <span class="w-1.5 h-1.5 rounded-full bg-emerald-500"></span>Activa
+            </span>
+          </div>
+
+          <div class="flex flex-wrap gap-2 mb-6" aria-label="Frecuencias disponibles">
+            {frequencies.map((f) => (
+              <span class={`text-xs px-3 py-1.5 rounded-full border ${f === "Mensual"
+                ? "bg-sky-600 border-sky-600 text-white font-semibold"
+                : "border-sky-200 dark:border-white/10 text-sky-800/70 dark:text-slate-400"}`}>
+                {f}
+              </span>
+            ))}
+          </div>
+
+          <div class="rounded-xl bg-white dark:bg-[#0b1d33] border border-sky-100 dark:border-white/10 px-5 py-4 mb-6">
+            <p class="text-sm text-sky-700/80 dark:text-slate-400">Próxima emisión</p>
+            <p class="text-lg font-bold text-sky-950 dark:text-white">1 de noviembre · 08:00</p>
+            <p class="text-sm text-sky-800 dark:text-slate-300 mt-1">“Arriendo noviembre 2026” · $350,00 + IVA</p>
+          </div>
+
+          <p class="text-sm font-semibold text-sky-950 dark:text-white mb-2">Historial</p>
+          <ul class="divide-y divide-sky-100 dark:divide-white/10">
+            {runs.map((r) => (
+              <li class="flex items-center justify-between py-2.5 text-sm">
+                <span class="text-sky-950 dark:text-slate-200">{r.period}</span>
+                <span class="flex items-center gap-3">
+                  <span class="text-sky-700/70 dark:text-slate-500 hidden sm:inline">{r.date}</span>
+                  <span class="text-emerald-700 dark:text-emerald-400 font-medium">{r.state}</span>
+                </span>
+              </li>
+            ))}
+          </ul>
+        </div>
+      </div>
+
+      <!-- Texto -->
+      <div class="order-1 lg:order-2">
+        <p class="reveal reveal-up text-sm font-semibold text-sky-600 dark:text-sky-400 mb-3">
+          Facturas recurrentes
+        </p>
+        <h2 class="reveal reveal-up reveal-delay-1 text-4xl lg:text-5xl font-extrabold text-sky-950 dark:text-white leading-tight mb-5">
+          Lo que cobras cada mes, configúralo una vez.
+        </h2>
+        <p class="reveal reveal-up reveal-delay-2 text-sky-800 dark:text-slate-400 text-lg leading-relaxed mb-10 max-w-xl">
+          Arriendos, pensiones, mantenimiento, suscripciones o honorarios: FACEC emite la factura,
+          la autoriza en el SRI y la envía por correo a tu cliente.
+        </p>
+
+        <dl class="reveal reveal-up reveal-delay-3 grid sm:grid-cols-2 gap-x-8 gap-y-7">
+          {points.map((p) => (
+            <div>
+              <dt class="font-bold text-sky-950 dark:text-white mb-1">{p.title}</dt>
+              <dd class="text-sky-800/80 dark:text-slate-400 text-sm leading-relaxed">{p.desc}</dd>
+            </div>
+          ))}
+        </dl>
+      </div>
+
+    </div>
+  </div>
+</section>

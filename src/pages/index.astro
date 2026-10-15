@@ -4,7 +4,9 @@ import Characteristics from "../components/Characteristics.astro";
 import Comprobantes from "../components/Comprobantes.astro";
 import Contacts from "../components/Contacts.astro";
 import Faq from "../components/Faq.astro";
+import Finance from "../components/Finance.astro";
 import Prices from "../components/Prices.astro";
+import Recurring from "../components/Recurring.astro";
 import Statistics from "../components/Statistics.astro";
 import Layout from "../layouts/Layout.astro";
 
@@ -13,13 +15,15 @@ import Layout from "../layouts/Layout.astro";
 ---
 
 <Layout
-  title="FACEC | Facíl de facturar"
-  description="Aplicación de facturación electrónica y emisión de firmas electrónicas"
+  title="FACEC | Facturación electrónica y finanzas para tu negocio"
+  description="Emite comprobantes electrónicos autorizados por el SRI, automatiza facturas recurrentes y controla cobros, pagos, cajas y bancos. Prueba gratis 1 mes."
 >
   <Banner />
-  <Prices />
-  <Characteristics />
+  <Finance />
+  <Recurring />
   <Comprobantes />
+  <Characteristics />
+  <Prices />
   <Statistics />
   <Faq />
   <Contacts />
